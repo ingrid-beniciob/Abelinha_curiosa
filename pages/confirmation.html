@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido Confirmado - Abelinha Curiosa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Conteúdo principal -->
+    <main class="confirmation-page">
+        <div class="container">
+            <!-- Mensagem de sucesso -->
+            <div class="confirmation-message">
+                <div class="success-icon">✓</div>
+                <h1>Pedido Confirmado!</h1>
+                <p>Seu pedido foi realizado com sucesso.</p>
+                <p class="pedido-numero">Número do pedido: <strong id="pedido-id">#0000</strong></p>
+            </div>
+
+            <!-- Detalhes do pedido -->
+            <div class="confirmation-details">
+                <h2>Detalhes do Pedido</h2>
+                <div id="pedido-detalhes">
+                    <!-- Carregado via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Próximos passos -->
+            <div class="next-steps">
+                <h3>Próximos Passos</h3>
+                <ol>
+                    <li>Você receberá um e-mail de confirmação em breve</li>
+                    <li>Assim que o pagamento for confirmado, seu pedido será processado</li>
+                    <li>Você será notificado quando o pedido for enviado</li>
+                </ol>
+            </div>
+
+            <!-- Ações -->
+            <div class="confirmation-actions">
+                <a href="../index.html" class="btn">Voltar para Início</a>
+                <a href="piticos.html" class="btn btn-secondary">Continuar Comprando</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="../js/components.js"></script>
+
+    <script>
+        /**
+         * Carrega detalhes do pedido
+         */
+        document.addEventListener('DOMContentLoaded', function () {
+            // Pega ID do pedido da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const pedidoId = urlParams.get('pedido');
+
+            // Se não tem ID, redireciona
+            if (!pedidoId) {
+                window.location.href = '../index.html';
+                return;
+            }
+
+            // Exibe número do pedido
+            document.getElementById('pedido-id').textContent = `#${pedidoId}`;
+
+            // Exibe mensagem genérica de confirmação
+            document.getElementById('pedido-detalhes').innerHTML = `
+                <div class="confirmation-info">
+                    <p><strong>Status:</strong> Pedido em Processamento</p>
+                    <p><strong>Pagamento:</strong> Aguardando confirmação</p>
+                    <p>Você receberá um e-mail com os detalhes completos do seu pedido.</p>
+                </div>
+            `;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrativo - Abelinha Curiosa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="admin-login-page">
+    <!-- Container de login -->
+    <div class="login-container">
+        <!-- Card de login -->
+        <div class="login-card">
+            <!-- Logo e título -->
+            <div class="login-header">
+                <h1>Abelinha Curiosa</h1>
+                <p>Painel Administrativo</p>
+            </div>
+
+            <!-- Mensagem de erro (oculta por padrão) -->
+            <div id="error-message" class="error-message" style="display: none;">
+                <!-- Mensagem de erro -->
+            </div>
+
+            <!-- Formulário de login -->
+            <form onsubmit="fazerLogin(event)" class="login-form">
+                <!-- Campo de email -->
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="digite seu email" required
+                        autocomplete="email">
+                </div>
+
+                <!-- Campo de senha -->
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="digite sua senha" required
+                        autocomplete="current-password">
+                </div>
+
+                <!-- Botão de login -->
+                <button type="submit" class="btn btn-primary btn-block">
+                    Entrar
+                </button>
+            </form>
+            
+            <!-- Link para voltar à loja -->
+            <div class="back-to-store">
+                <a href="../index.html">← Voltar para a Loja</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/admin-auth.js"></script>
+</body>
+
+</html>

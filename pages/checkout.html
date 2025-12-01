@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Abelinha Curiosa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Conteúdo principal -->
+    <main class="checkout-page">
+        <div class="container">
+            <!-- Título -->
+            <h1>Finalizar Compra</h1>
+
+            <!-- Container principal -->
+            <div class="checkout-container">
+                <!-- Formulário de checkout -->
+                <form id="checkout-form" onsubmit="finalizarPedido(event)" class="checkout-form">
+
+                    <!-- Seção: Dados Pessoais -->
+                    <section class="form-section">
+                        <h2>Dados Pessoais</h2>
+
+                        <div class="form-group">
+                            <label for="nome_cliente">Nome Completo *</label>
+                            <input type="text" id="nome_cliente" name="nome_cliente"
+                                placeholder="Digite seu nome completo" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                        </div>
+                    </section>
+
+                    <!-- Seção: Endereço de Entrega -->
+                    <section class="form-section">
+                        <h2>Endereço de Entrega</h2>
+
+                        <!-- CEP com botão de busca -->
+                        <div class="form-group cep-group">
+                            <label for="cep">CEP *</label>
+                            <div class="cep-input-group">
+                                <input type="text" id="cep" name="cep" placeholder="00000-000" maxlength="9" required>
+                                <button type="button" class="btn-buscar-cep"
+                                    onclick="buscarCEP(document.getElementById('cep').value)">
+                                    Buscar CEP
+                                </button>
+                            </div>
+                            <small><a href="https://buscacepinter.correios.com.br/app/endereco/index.php"
+                                    target="_blank">Não sei meu CEP</a></small>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-8">
+                                <label for="endereco">Endereço *</label>
+                                <input type="text" id="endereco" name="endereco" placeholder="Rua, Avenida..." readonly
+                                    required>
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="numero">Número *</label>
+                                <input type="text" id="numero" name="numero" placeholder="123" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="complemento">Complemento</label>
+                            <input type="text" id="complemento" name="complemento"
+                                placeholder="Apto, Bloco, Casa... (opcional)">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-6">
+                                <label for="bairro">Bairro *</label>
+                                <input type="text" id="bairro" name="bairro" readonly required>
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label for="cidade">Cidade *</label>
+                                <input type="text" id="cidade" name="cidade" readonly required>
+                            </div>
+
+                            <div class="form-group col-2">
+                                <label for="estado">UF *</label>
+                                <input type="text" id="estado" name="estado" readonly required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Informações de Frete (aparece após buscar CEP) -->
+                    <div id="frete-info" class="frete-info" style="display: none;">
+                        <!-- Preenchido via JavaScript -->
+                    </div>
+
+                    <!-- Seção: Forma de Pagamento -->
+                    <section class="form-section">
+                        <h2>Forma de Pagamento</h2>
+
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="pagamento" value="pix" checked>
+                                <span>💰 Pix (Aprovação Imediata)</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="pagamento" value="cartao">
+                                <span>💳 Cartão de Crédito</span>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="pagamento" value="boleto">
+                                <span>🧾 Boleto Bancário</span>
+                            </label>
+                        </div>
+
+                        <p class="payment-note">
+                            <small>* Esta é uma simulação. Nenhum pagamento real será processado.</small>
+                        </p>
+                    </section>
+
+                    <!-- Botão de Finalizar -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-finalizar">
+                            Finalizar Pedido
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Resumo do Pedido (lateral) -->
+                <aside class="checkout-summary">
+                    <div id="resumo-pedido">
+                        <!-- Preenchido via JavaScript -->
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="../js/components.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+
+</html>

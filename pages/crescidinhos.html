@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crescidinhos (3-5 anos) - Abelinha Curiosa</title>
+    <meta name="description"
+        content="Brinquedos educativos para crianças de 3 a 5 anos. Estimule aprendizado, raciocínio lógico e socialização.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <main>
+        <section class="category-banner crescidinhos-banner">
+            <div class="container">
+                <h1>Crescidinhos (3-5 anos)</h1>
+                <p>Brinquedos que estimulam raciocínio lógico, criatividade e habilidades sociais
+                    para crianças de 3 a 5 anos!</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Produtos serão carregados via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/products.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            carregarProdutos('crescidinhos');
+        });
+    </script>
+</body>
+
+</html>

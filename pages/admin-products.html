@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Painel Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="admin-page">
+    <!-- Navbar Admin -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-brand">
+            <h2>Abelinha Curiosa - Admin</h2>
+        </div>
+        <div class="admin-nav-links">
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-products.html" class="active">Produtos</a>
+            <a href="admin-orders.html">Pedidos</a>
+            <a href="#" onclick="fazerLogout()">Sair</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="admin-content">
+        <div class="container">
+            <!-- Header -->
+            <div class="page-header">
+                <h1>Gerenciar Produtos</h1>
+                <a href="admin-product-form.html" class="btn btn-primary">
+                    ➕ Adicionar Produto
+                </a>
+            </div>
+
+            <!-- Filtros -->
+            <div class="filters">
+                <label for="filter-category">Filtrar por Categoria:</label>
+                <select id="filter-category" onchange="filtrarPorCategoria()">
+                    <option value="">Todas</option>
+                    <option value="piticos">Piticos</option>
+                    <option value="fofinhos">Fofinhos</option>
+                    <option value="crescidinhos">Crescidinhos</option>
+                    <option value="grandinhos">Grandinhos</option>
+                </select>
+            </div>
+
+            <!-- Tabela de Produtos -->
+            <div id="products-table">
+                <!-- Carregado via JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/admin-auth.js"></script>
+    <script src="../js/admin-products.js"></script>
+
+    <script>
+        // Carrega produtos quando página carregar
+        document.addEventListener('DOMContentLoaded', () => carregarProdutos());
+    </script>
+</body>
+
+</html>

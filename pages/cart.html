@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho de Compras - Abelinha Curiosa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Conteúdo principal -->
+    <main class="cart-page">
+        <div class="container">
+            <!-- Título da página -->
+            <h1>Meu Carrinho</h1>
+
+            <!-- Container do carrinho -->
+            <div class="cart-container">
+                <!-- Lista de itens do carrinho -->
+                <div class="cart-items" id="cart-items">
+                    <!-- Itens serão carregados via JavaScript -->
+                </div>
+
+                <!-- Resumo do pedido -->
+                <div class="cart-summary" id="cart-summary">
+                    <!-- Resumo será carregado via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="../js/components.js"></script>
+    <script src="../js/cart.js"></script>
+
+    <!-- Script da página do carrinho -->
+    <script>
+        /**
+         * Renderiza itens do carrinho na página
+         */
+        function renderizarCarrinho() {
+            // Pega container dos itens
+            const container = document.getElementById('cart-items');
+
+            // Obtém carrinho do localStorage
+            const carrinho = obterCarrinho();
+
+            // Se carrinho está vazio
+            if (carrinho.length === 0) {
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <h2>Seu carrinho está vazio</h2>
+                        <p>Adicione produtos para começar suas compras!</p>
+                        <a href="../index.html" class="btn">Continuar Comprando</a>
+                    </div>
+                `;
+
+                // Esconde resumo
+                document.getElementById('cart-summary').style.display = 'none';
+                return;
+            }
+
+            // Limpa container
+            container.innerHTML = '';
+
+            // Percorre cada item do carrinho
+            carrinho.forEach(item => {
+                // Cria div do item
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+
+                // Define HTML do item
+                itemDiv.innerHTML = `
+                    <div class="item-image">
+                        <img src="../${item.imagem}" alt="${item.nome}">
+                    </div>
+                    
+                    <div class="item-details">
+                        <h3>${item.nome}</h3>
+                        <p class="item-price">R$ ${formatarPreco(item.preco)}</p>
+                    </div>
+                    
+                    <div class="item-quantity">
+                        <label>Quantidade:</label>
+                        <input type="number" 
+                               value="${item.quantidade}" 
+                               min="1" 
+                               max="${item.estoque}"
+                               onchange="atualizarQuantidade(${item.id}, this.value); renderizarCarrinho()">
+                    </div>
+                    
+                    <div class="item-subtotal">
+                        <p>R$ ${formatarPreco(item.preco * item.quantidade)}</p>
+                    </div>
+                    
+                    <div class="item-remove">
+                        <button onclick="removerItem(${item.id})" class="btn-remove">✕</button>
+                    </div>
+                `;
+
+                // Adiciona ao container
+                container.appendChild(itemDiv);
+            });
+
+            // Renderiza resumo
+            renderizarResumo();
+        }
+
+        /**
+         * Renderiza resumo do pedido
+         */
+        function renderizarResumo() {
+            // Pega container do resumo
+            const container = document.getElementById('cart-summary');
+
+            // Calcula subtotal
+            const subtotal = calcularSubtotal();
+
+            // Define HTML do resumo
+            container.innerHTML = `
+                <h3>Resumo do Pedido</h3>
+                
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span>R$ ${formatarPreco(subtotal)}</span>
+                </div>
+                
+                <div class="summary-row obs">
+                    <small>Frete calculado no checkout</small>
+                </div>
+                
+                <div class="summary-total">
+                    <span>Total:</span>
+                    <span>R$ ${formatarPreco(subtotal)}</span>
+                </div>
+                
+                <button onclick="irParaCheckout()" class="btn btn-checkout">
+                    Finalizar Compra
+                </button>
+                
+                <a href="../index.html" class="btn-continue">
+                    Continuar Comprando
+                </a>
+            `;
+
+            // Mostra resumo
+            container.style.display = 'block';
+        }
+
+        /**
+         * Remove item do carrinho
+         */
+        function removerItem(produtoId) {
+            // Confirma remoção
+            if (confirm('Deseja remover este item do carrinho?')) {
+                // Remove do carrinho
+                removerDoCarrinho(produtoId);
+
+                // Re-renderiza
+                renderizarCarrinho();
+            }
+        }
+
+        /**
+         * Redireciona para checkout
+         */
+        function irParaCheckout() {
+            // Redireciona
+            window.location.href = 'checkout.html';
+        }
+
+        // Carrega carrinho quando página carregar
+        document.addEventListener('DOMContentLoaded', renderizarCarrinho);
+    </script>
+</body>
+
+</html>

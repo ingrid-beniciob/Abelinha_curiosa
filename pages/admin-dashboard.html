@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Painel Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="admin-page">
+    <!-- Navbar Admin -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-brand">
+            <h2>Abelinha Curiosa - Admin</h2>
+        </div>
+        <div class="admin-nav-links">
+            <a href="admin-dashboard.html" class="active">Dashboard</a>
+            <a href="admin-products.html">Produtos</a>
+            <a href="admin-orders.html">Pedidos</a>
+            <a href="#" onclick="fazerLogout()">Sair</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="admin-content">
+        <div class="container">
+            <!-- Título -->
+            <h1>Dashboard</h1>
+
+            <!-- Cards de Estatísticas -->
+            <div class="stats-grid">
+                <!-- Total de Produtos -->
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <h3 id="total-produtos">0</h3>
+                        <p>Total de Produtos</p>
+                    </div>
+                </div>
+
+                <!-- Total de Pedidos -->
+                <div class="stat-card">
+                    <div class="stat-icon">🛒</div>
+                    <div class="stat-info">
+                        <h3 id="total-pedidos">0</h3>
+                        <p>Total de Pedidos</p>
+                    </div>
+                </div>
+
+                <!-- Pedidos Pendentes -->
+                <div class="stat-card">
+                    <div class="stat-icon">⏰</div>
+                    <div class="stat-info">
+                        <h3 id="pedidos-pendentes">0</h3>
+                        <p>Pedidos Pendentes</p>
+                    </div>
+                </div>
+
+                <!-- Valor Total -->
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-info">
+                        <h3 id="valor-total">R$ 0,00</h3>
+                        <p>Valor Total em Vendas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ações Rápidas -->
+            <div class="quick-actions">
+                <h2>Ações Rápidas</h2>
+                <div class="actions-buttons">
+                    <a href="admin-product-form.html" class="btn btn-primary">
+                        ➕ Adicionar Produto
+                    </a>
+                    <a href="admin-products.html" class="btn btn-secondary">
+                        📋 Ver Todos os Produtos
+                    </a>
+                    <a href="admin-orders.html" class="btn btn-secondary">
+                        📊 Ver Pedidos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Últimos Pedidos -->
+            <div class="recent-orders">
+                <h2>Últimos Pedidos</h2>
+                <div id="recent-orders-list">
+                    <!-- Carregado via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/admin-auth.js"></script>
+
+    <script>
+        /**
+         * Carrega estatísticas do dashboard
+         */
+        async function carregarDashboard() {
+            // Verifica autenticação
+            const autenticado = await verificarAutenticacao();
+            if (!autenticado) return;
+
+            try {
+                // Carrega produtos
+                const resProdutos = await fetch('../php/list.php');
+                const dataProdutos = await resProdutos.json();
+
+                if (dataProdutos.success) {
+                    document.getElementById('total-produtos').textContent = dataProdutos.total;
+                }
+
+                // Carrega pedidos
+                const resPedidos = await fetch('../php/list-orders.php');
+                const dataPedidos = await resPedidos.json();
+
+                if (dataPedidos.success) {
+                    const pedidos = dataPedidos.pedidos;
+
+                    // Total de pedidos
+                    document.getElementById('total-pedidos').textContent = pedidos.length;
+
+                    // Pedidos pendentes
+                    const pendentes = pedidos.filter(p => p.status === 'pendente').length;
+                    document.getElementById('pedidos-pendentes').textContent = pendentes;
+
+                    // Valor total
+                    const valorTotal = pedidos.reduce((sum, p) => sum + parseFloat(p.valor_total), 0);
+                    document.getElementById('valor-total').textContent = `R$ ${valorTotal.toFixed(2).replace('.', ',')}`;
+
+                    // Últimos 5 pedidos
+                    renderizarUltimosPedidos(pedidos.slice(0, 5));
+                }
+
+            } catch (error) {
+                console.error('Erro ao carregar dashboard:', error);
+            }
+        }
+
+        /**
+         * Renderiza últimos pedidos
+         */
+        function renderizarUltimosPedidos(pedidos) {
+            const container = document.getElementById('recent-orders-list');
+
+            if (pedidos.length === 0) {
+                container.innerHTML = '<p>Nenhum pedido realizado ainda.</p>';
+                return;
+            }
+
+            let html = '<table class="admin-table"><thead><tr><th>ID</th><th>Cliente</th><th>Valor</th><th>Status</th><th>Data</th></tr></thead><tbody>';
+
+            pedidos.forEach(pedido => {
+                const data = new Date(pedido.data_pedido).toLocaleDateString('pt-BR');
+                html += `
+                    <tr>
+                        <td>#${pedido.id}</td>
+                        <td>${pedido.nome_cliente}</td>
+                        <td>R$ ${parseFloat(pedido.valor_total).toFixed(2).replace('.', ',')}</td>
+                        <td><span class="status-badge status-${pedido.status}">${pedido.status}</span></td>
+                        <td>${data}</td>
+                    </tr>
+                `;
+            });
+
+            html += '</tbody></table>';
+            container.innerHTML = html;
+        }
+
+        // Carrega dashboard quando página carregar
+        document.addEventListener('DOMContentLoaded', carregarDashboard);
+    </script>
+</body>
+
+</html>

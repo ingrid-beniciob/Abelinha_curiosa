@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Produto - Painel Admin</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="admin-page">
+    <!-- Navbar Admin -->
+    <nav class="admin-navbar">
+        <div class="admin-nav-brand">
+            <h2>Abelinha Curiosa - Admin</h2>
+        </div>
+        <div class="admin-nav-links">
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="admin-products.html" class="active">Produtos</a>
+            <a href="admin-orders.html">Pedidos</a>
+            <a href="#" onclick="fazerLogout()">Sair</a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="admin-content">
+        <div class="container">
+            <h1 id="form-title">Adicionar Produto</h1>
+
+            <!-- Formulário -->
+            <form id="product-form" onsubmit="salvarProduto(event)" class="admin-form">
+                <!-- ID (oculto, usado para edição) -->
+                <input type="hidden" id="product-id" name="id">
+
+                <!-- Nome -->
+                <div class="form-group">
+                    <label for="nome">Nome do Produto *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <!-- Descrição -->
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" rows="4"></textarea>
+                </div>
+
+                <!-- Preço e Estoque -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preco">Preço (R$) *</label>
+                        <input type="number" id="preco" name="preco" step="0.01" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estoque">Estoque *</label>
+                        <input type="number" id="estoque" name="estoque" min="0" required>
+                    </div>
+                </div>
+
+                <!-- Categoria -->
+                <div class="form-group">
+                    <label for="categoria">Categoria *</label>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Selecione...</option>
+                        <option value="piticos">Piticos (0-1 ano)</option>
+                        <option value="fofinhos">Fofinhos (1-3 anos)</option>
+                        <option value="crescidinhos">Crescidinhos (3-5 anos)</option>
+                        <option value="grandinhos">Grandinhos (5-7 anos)</option>
+                    </select>
+                </div>
+
+                <!-- Imagem -->
+                <div class="form-group">
+                    <label for="imagem">Caminho da Imagem *</label>
+                    <input type="text" id="imagem" name="imagem" placeholder="assets/images/piticos/produto.jpg"
+                        required>
+                    <small>Exemplo: assets/images/piticos/mobile_berco.jpg</small>
+                </div>
+
+                <!-- Botões -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="btn-submit">
+                        Salvar Produto
+                    </button>
+                    <a href="admin-products.html" class="btn btn-secondary">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="../js/admin-auth.js"></script>
+
+    <script>
+        /**
+         * Salva produto (criar ou atualizar)
+         */
+        async function salvarProduto(event) {
+            event.preventDefault();
+
+            // Pega dados do formulário
+            const form = event.target;
+            const formData = new FormData(form);
+
+            // Monta objeto
+            const produto = {
+                nome: formData.get('nome'),
+                descricao: formData.get('descricao'),
+                preco: parseFloat(formData.get('preco')),
+                estoque: parseInt(formData.get('estoque')),
+                categoria: formData.get('categoria'),
+                imagem: formData.get('imagem')
+            };
+
+            // Se tem ID, é edição
+            const id = formData.get('id');
+            if (id) {
+                produto.id = parseInt(id);
+            }
+
+            try {
+                // Desabilita botão
+                const btn = document.getElementById('btn-submit');
+                btn.textContent = 'Salvando...';
+                btn.disabled = true;
+
+                // Faz requisição
+                const response = await fetch('../php/save-product.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(produto)
+                });
+
+                const data = await response.json();
+
+                // Restaura botão
+                btn.textContent = 'Salvar Produto';
+                btn.disabled = false;
+
+                if (data.success) {
+                    alert('Produto salvo com sucesso!');
+                    window.location.href = 'admin-products.html';
+                } else {
+                    alert(data.message || 'Erro ao salvar produto');
+                }
+
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('Erro ao salvar produto');
+
+                // Restaura botão
+                const btn = document.getElementById('btn-submit');
+                btn.textContent = 'Salvar Produto';
+                btn.disabled = false;
+            }
+        }
+
+        /**
+         * Carrega produto para edição (se tiver ID na URL)
+         */
+        async function carregarProduto() {
+            // Verifica autenticação
+            const autenticado = await verificarAutenticacao();
+            if (!autenticado) return;
+
+            // Pega ID da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            if (!id) return; // Modo criação
+
+            // Modo edição
+            document.getElementById('form-title').textContent = 'Editar Produto';
+
+            try {
+                // Busca todos os produtos
+                const response = await fetch('../php/list.php');
+                const data = await response.json();
+
+                if (!data.success) return;
+
+                // Busca produto específico
+                const produto = data.produtos.find(p => p.id === parseInt(id));
+
+                if (!produto) {
+                    alert('Produto não encontrado');
+                    return;
+                }
+
+                // Preenche formulário
+                document.getElementById('product-id').value = produto.id;
+                document.getElementById('nome').value = produto.nome;
+                document.getElementById('descricao').value = produto.descricao || '';
+                document.getElementById('preco').value = produto.preco;
+                document.getElementById('estoque').value = produto.estoque;
+                document.getElementById('categoria').value = produto.categoria;
+                document.getElementById('imagem').value = produto.imagem;
+
+            } catch (error) {
+                console.error('Erro ao carregar produto:', error);
+            }
+        }
+
+        // Carrega produto (se edição)
+        document.addEventListener('DOMContentLoaded', carregarProduto);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Codificação de caracteres UTF-8 para acentos -->
+    <meta charset="UTF-8">
+
+    <!-- Configuração de viewport para responsividade -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título da página -->
+    <title>Fofinhos (1-3 anos) - Abelinha Curiosa</title>
+
+    <!-- Meta description para SEO -->
+    <meta name="description"
+        content="Brinquedos educativos para crianças de 1 a 3 anos. Produtos que estimulam criatividade, coordenação motora e desenvolvimento cognitivo.">
+
+    <!-- Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!-- Header (será injetado via JavaScript) -->
+    <div id="header"></div>
+
+    <!-- Conteúdo principal da página -->
+    <main>
+        <!-- Banner da categoria -->
+        <section class="category-banner fofinhos-banner">
+            <div class="container">
+                <!-- Título da categoria -->
+                <h1>Fofinhos (1-3 anos)</h1>
+
+                <!-- Descrição da categoria -->
+                <p>Brinquedos divertidos e educativos para crianças de 1 a 3 anos.
+                    Desenvolva habilidades motoras, criatividade e coordenação!</p>
+            </div>
+        </section>
+
+        <!-- Grid de produtos -->
+        <section class="products-section">
+            <div class="container">
+                <!-- Grid onde os produtos serão carregados -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Produtos serão carregados via JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (será injetado via JavaScript) -->
+    <div id="footer"></div>
+
+    <!-- Scripts JavaScript -->
+
+    <!-- Componentes compartilhados (header e footer) -->
+    <script src="../js/components.js"></script>
+
+    <!-- Gerenciamento do carrinho -->
+    <script src="../js/cart.js"></script>
+
+    <!-- Carregamento e exibição de produtos -->
+    <script src="../js/products.js"></script>
+
+    <!-- Script inline para carregar produtos desta categoria -->
+    <script>
+        // Aguarda DOM carregar completamente
+        document.addEventListener('DOMContentLoaded', function () {
+            // Chama função para carregar produtos da categoria "fofinhos"
+            carregarProdutos('fofinhos');
+        });
+    </script>
+</body>
+
+</html>
