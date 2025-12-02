@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Produtos - Abelinha Curiosa</title>
+
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <!-- Header (será injetado via JavaScript) -->
+    <div id="header"></div>
+
+    <!-- Conteúdo principal -->
+    <main>
+        <!-- Banner da busca -->
+        <section class="category-banner">
+            <div class="container">
+                <h1 id="busca-titulo">Resultados da Busca</h1>
+                <p id="busca-descricao">Encontre todos os produtos que você procura</p>
+            </div>
+        </section>
+
+        <!-- Grid de produtos -->
+        <section class="container products-section">
+            <div class="products-grid" id="products-grid">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (será injetado via JavaScript) -->
+    <div id="footer"></div>
+
+    <!-- Scripts JavaScript -->
+    <script src="../js/components.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/products.js"></script>
+
+    <!-- Script para carregar todos os produtos e filtrar -->
+    <script>
+        /**
+         * Carrega todos os produtos de todas as categorias
+         */
+        async function carregarTodosProdutos() {
+            try {
+                // Exibe loading
+                mostrarLoading(true);
+
+                // Categorias para buscar
+                const categorias = ['piticos', 'fofinhos', 'crescidinhos', 'grandinhos'];
+                let todosProdutos = [];
+
+                // Busca produtos de todas as categorias
+                for (const categoria of categorias) {
+                    const response = await fetch(`../php/list.php?categoria=${categoria}`);
+                    const data = await response.json();
+
+                    if (data.success && data.produtos) {
+                        todosProdutos = todosProdutos.concat(data.produtos);
+                    }
+                }
+
+                console.log('Total de produtos carregados:', todosProdutos.length);
+
+                // Pega termo de busca da URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const termoBusca = urlParams.get('busca');
+
+                // Atualiza título e descrição
+                const titulo = document.getElementById('busca-titulo');
+                const descricao = document.getElementById('busca-descricao');
+
+                if (termoBusca) {
+                    const produtosFiltrados = todosProdutos.filter(produto =>
+                        produto.nome.toLowerCase().includes(termoBusca.toLowerCase())
+                    );
+
+                    titulo.textContent = `Resultados para "${termoBusca}"`;
+                    descricao.textContent = `${produtosFiltrados.length} produto${produtosFiltrados.length !== 1 ? 's' : ''} encontrado${produtosFiltrados.length !== 1 ? 's' : ''}`;
+
+                    // Renderiza produtos filtrados
+                    renderizarProdutosBusca(produtosFiltrados, termoBusca);
+                } else {
+                    titulo.textContent = 'Todos os Produtos';
+                    descricao.textContent = `${todosProdutos.length} produtos disponíveis`;
+
+                    // Renderiza todos os produtos
+                    renderizarProdutosBusca(todosProdutos);
+                }
+
+                // Esconde loading
+                mostrarLoading(false);
+
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                mostrarLoading(false);
+
+                const container = document.getElementById('products-grid');
+                container.innerHTML = `
+                    <div class="error-message">
+                        <p>Erro ao carregar produtos. Tente novamente.</p>
+                        <button onclick="location.reload()">Recarregar</button>
+                    </div>
+                `;
+            }
+        }
+
+        /**
+         * Renderiza produtos da busca (sem filtro adicional)
+         */
+        function renderizarProdutosBusca(produtos, termoBusca = null) {
+            const container = document.getElementById('products-grid');
+
+            if (!container) {
+                console.error('Container products-grid não encontrado');
+                return;
+            }
+
+            // Limpa container
+            container.innerHTML = '';
+
+            // Verifica se há produtos
+            if (!produtos || produtos.length === 0) {
+                const mensagem = termoBusca
+                    ? `Nenhum produto encontrado para "${termoBusca}".`
+                    : 'Nenhum produto disponível no momento.';
+
+                container.innerHTML = `
+                    <div class="no-products" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <h3 style="color: var(--cor-marrom-escuro); margin-bottom: 1rem;">${mensagem}</h3>
+                        <a href="../index.html" class="btn btn-secondary">Voltar para o Início</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Percorre cada produto
+            produtos.forEach(produto => {
+                // Cria card do produto
+                const card = criarCardProduto(produto);
+
+                // Adiciona ao container
+                container.appendChild(card);
+            });
+        }
+
+        // Carrega produtos quando página carregar
+        document.addEventListener('DOMContentLoaded', carregarTodosProdutos);
+    </script>
+</body>
+
+</html>

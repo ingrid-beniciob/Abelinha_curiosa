@@ -21,8 +21,8 @@
             </a>
 
             <div class="search-bar">
-                <input type="text" placeholder="Buscar brinquedos...">
-                <button class="search-btn">
+                <input type="text" id="search-input" placeholder="Buscar brinquedos..." autocomplete="off">
+                <button class="search-btn" onclick="realizarBusca()">
                     <img src="./assets/images/site/lupa.png" alt="Buscar" class="search-icon-img">
                 </button>
             </div>
@@ -39,7 +39,7 @@
 
             <a href="pages/cart.html" class="cart-icon">
                 <img src="./assets/images/site/carrinho.png" alt="Carrinho" class="cart-icon-img">
-                <span class="cart-count hidden">0</span>
+
             </a>
         </div>
     </header>
@@ -73,7 +73,8 @@
                 </a>
                 <a href="pages/crescidinhos.html" class="category-card cat-crescidinhos">
                     <div class="category-img">
-                        <img src="./assets/images/site/cat-crescidinhos.png" alt="Crescidinhos" class="category-icon-img">
+                        <img src="./assets/images/site/cat-crescidinhos.png" alt="Crescidinhos"
+                            class="category-icon-img">
                     </div>
                     <h3>Crescidinhos</h3>
                     <p>3 a 5 anos</p>
@@ -116,6 +117,10 @@
         </div>
     </footer>
 
+    <!-- Script de componentes -->
+    <script src="js/components.js"></script>
+    <!-- Script de componentes -->
+    <script src="js/components.js"></script>
 </body>
 
 </html>

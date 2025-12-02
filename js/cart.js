@@ -213,6 +213,18 @@ function calcularSubtotal() {
     return subtotal;
 }
 
+// ===== FUNÇÃO: FORMATAR PREÇO =====
+
+/**
+ * Formata valor numérico para formato de moeda brasileira
+ * @param {number} valor - Valor a formatar
+ * @returns {string} Valor formatado (ex: "123,45")
+ */
+function formatarPreco(valor) {
+    // Converte para número e formata com 2 casas decimais
+    return parseFloat(valor).toFixed(2).replace('.', ',');
+}
+
 // ===== FUNÇÃO: MOSTRAR NOTIFICAÇÃO =====
 
 /**

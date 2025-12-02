@@ -72,14 +72,36 @@ function renderizarProdutos(produtos) {
         return;
     }
 
+    // Verifica se há parâmetro de busca na URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const termoBusca = urlParams.get('busca');
+
+    // Se há termo de busca, filtra os produtos
+    if (termoBusca) {
+        console.log('🔍 Filtrando produtos por:', termoBusca);
+        produtos = produtos.filter(produto =>
+            produto.nome.toLowerCase().includes(termoBusca.toLowerCase())
+        );
+
+        // Adiciona mensagem indicando a busca
+        const mensagemBusca = document.createElement('div');
+        mensagemBusca.style.cssText = 'text-align: center; margin-bottom: 2rem; padding: 1rem; background: var(--cor-amarelo-suave); border-radius: var(--border-radius-md);';
+        mensagemBusca.innerHTML = `<p style="margin: 0; font-weight: 600;">Resultados para: <strong>"${termoBusca}"</strong> (${produtos.length} produto${produtos.length !== 1 ? 's' : ''} encontrado${produtos.length !== 1 ? 's' : ''})</p>`;
+        container.parentElement.insertBefore(mensagemBusca, container);
+    }
+
     // Limpa container
     container.innerHTML = '';
 
     // Verifica se há produtos
     if (!produtos || produtos.length === 0) {
+        const mensagem = termoBusca
+            ? `Nenhum produto encontrado para "${termoBusca}".`
+            : 'Nenhum produto encontrado nesta categoria.';
+
         container.innerHTML = `
             <div class="no-products">
-                <p>Nenhum produto encontrado nesta categoria.</p>
+                <p>${mensagem}</p>
             </div>
         `;
         return;
@@ -115,28 +137,21 @@ function criarCardProduto(produto) {
             <img src="../${produto.imagem}" alt="${produto.nome}" loading="lazy">
         </div>
         
-        <!-- Informações principais -->
+        <!-- Informações do produto -->
         <div class="product-info">
             <h3 class="product-name">${produto.nome}</h3>
-            <p class="product-price">R$ ${formatarPreco(produto.preco)}</p>
-            
-            <!-- Botão adicionar ao carrinho -->
-            <button class="btn-add-cart" onclick="adicionarAoCarrinho(${produto.id})">
-                Adicionar ao Carrinho
-            </button>
-        </div>
-        
-        <!-- Hover: Informações completas -->
-        <div class="product-hover">
-            <h3>${produto.nome}</h3>
-            <p class="description">${produto.descricao || 'Produto de qualidade para o desenvolvimento infantil'}</p>
-            <p class="price">R$ ${formatarPreco(produto.preco)}</p>
-            <p class="stock">Estoque: ${produto.estoque} unidades</p>
-            
-            <!-- Botão no hover -->
-            <button class="btn-add-hover" onclick="adicionarAoCarrinho(${produto.id})">
-                Adicionar ao Carrinho
-            </button>
+            <p class="product-description">${produto.descricao || 'Produto de qualidade para o desenvolvimento infantil.'}</p>
+            <div class="product-footer">
+                <p class="product-price">R$ ${formatarPreco(produto.preco)}</p>
+                <button class="btn-add-cart" onclick="adicionarAoCarrinho(${produto.id})">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    Adicionar
+                </button>
+            </div>
         </div>
     `;
 
@@ -233,7 +248,7 @@ async function buscarProdutos(termo) {
     }
 }
 
-// ===== CSS DO LOADING (INLINE) =====
+// ==== CSS DO LOADING (INLINE) =====
 
 // Adiciona estilos do loading
 const styleLoading = document.createElement('style');
@@ -287,7 +302,7 @@ styleLoading.textContent = `
         background: #FFB300;
     }
     
-    /* Nenhum produto */
+   /* Nenhum produto */
     .no-products {
         grid-column: 1 / -1;
         text-align: center;

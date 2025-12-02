@@ -35,10 +35,9 @@ const headerHTML = `
             </ul>
         </nav>
         
-        <!-- Ícone do carrinho com contador -->
+        <!-- Ícone do carrinho -->
         <a href="cart.html" class="cart-icon">
             <img src="../assets/images/site/carrinho.png" alt="Carrinho" class="cart-icon-img">
-            <span class="cart-count" id="cart-count">0</span>
         </a>
     </div>
 </header>
@@ -92,79 +91,59 @@ const footerHTML = `
 function inicializarComponentes() {
     // Pega elemento do header
     const headerContainer = document.getElementById('header');
-    
+
     // Se elemento existe, insere HTML do header
     if (headerContainer) {
         headerContainer.innerHTML = headerHTML;
     }
-    
+
     // Pega elemento do footer
     const footerContainer = document.getElementById('footer');
-    
+
     // Se elemento existe, insere HTML do footer
     if (footerContainer) {
         footerContainer.innerHTML = footerHTML;
     }
-    
-    // Atualiza contador do carrinho
-    atualizarContadorCarrinho();
-    
+
+
     // Configura evento de busca com Enter
     configurarBusca();
 }
 
 // ===== FUNÇÃO DE ATUALIZAÇÃO DO CONTADOR DO CARRINHO =====
 
-/**
- * Atualiza número de itens no ícone do carrinho
- * Lê do localStorage e exibe total de itens
- */
-function atualizarContadorCarrinho() {
-    // Busca carrinho do localStorage
-    const carrinho = JSON.parse(localStorage.getItem('cart')) || [];
-    
-    // Calcula total de itens (soma das quantidades)
-    const totalItens = carrinho.reduce((total, item) => {
-        return total + (item.quantidade || 1);
-    }, 0);
-    
-    // Pega elemento do contador
-    const contadorElement = document.getElementById('cart-count');
-    
-    // Se elemento existe, atualiza texto
-    if (contadorElement) {
-        contadorElement.textContent = totalItens;
-        
-        // Mostra/esconde contador baseado na quantidade
-        if (totalItens > 0) {
-            contadorElement.style.display = 'flex';
-        } else {
-            contadorElement.style.display = 'none';
-        }
-    }
-}
 
-// ===== FUNÇÃO DE BUSCA =====
 
 /**
  * Realiza busca de produtos
  * Redireciona para página de resultados com termo de busca
  */
 function realizarBusca() {
+    console.log('🔍 realizarBusca() chamada!');
     // Pega valor do input de busca
     const input = document.getElementById('search-input');
-    
+    console.log('Input:', input);
+
     // Se input existe, pega termo de busca
     if (input) {
         const termo = input.value.trim();
-        
-        // Se termo não está vazio, redireciona para busca
+        console.log('Termo de busca:', termo);
+
+        // Se termo não está vazio
         if (termo.length >= 2) {
-            // Redireciona para página de busca (será criada depois)
-            // Por enquanto, exibe alerta
-            alert(`Buscando por: ${termo}`);
-            // TODO: Criar página de resultados de busca
-            // window.location.href = `search-results.html?q=${encodeURIComponent(termo)}`;
+            console.log('✅ Termo válido, redirecionando...');
+
+            // Detecta se está na raiz ou em /pages/
+            const isRootPage = window.location.pathname.endsWith('index.html') ||
+                window.location.pathname.endsWith('/') ||
+                !window.location.pathname.includes('/pages/');
+
+            const url = isRootPage
+                ? `pages/busca.html?busca=${encodeURIComponent(termo)}`
+                : `busca.html?busca=${encodeURIComponent(termo)}`;
+
+            console.log('Redirecionando para:', url);
+            window.location.href = url;
         } else {
             alert('Digite pelo menos 2 caracteres para buscar');
         }
@@ -177,11 +156,11 @@ function realizarBusca() {
 function configurarBusca() {
     // Pega input de busca
     const input = document.getElementById('search-input');
-    
+
     // Se input existe, adiciona evento
     if (input) {
         // Evento quando pressiona tecla
-        input.addEventListener('keypress', function(e) {
+        input.addEventListener('keypress', function (e) {
             // Se tecla é Enter (código 13)
             if (e.key === 'Enter' || e.keyCode === 13) {
                 // Realiza busca
