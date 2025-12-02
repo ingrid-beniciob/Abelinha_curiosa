@@ -4,77 +4,74 @@
    ============================================== */
 
 /* Importando fontes do Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap'); /* Importa fonte Nunito para textos */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap'); /* Importa fonte Fredoka para títulos */
 
 /* ==============================================
    VARIÁVEIS CSS - PALETA DE CORES TERROSAS
    ============================================== */
 :root {
     /* Cores terrosas clarinhas */
-    --cor-verde-suave: #C8D5B9;
-    --cor-verde-medio: #A8C69F;
-    --cor-verde-escuro: #7FA575;
-
-    --cor-marrom-claro: #D9C5B2;
-    --cor-marrom-medio: #C9A686;
-    --cor-marrom-escuro: #8B7355;
-
-    --cor-bege: #F5EFE6;
-    --cor-creme: #FFF8E8;
-    --cor-branco: #FFFFFF;
-
-    --cor-amarelo-suave: #F9E4A6;
-    --cor-rosa-bebe: #F2D7D9;
-    --cor-azul-bebe: #D4E5F2;
+    --cor-verde-suave: #C8D5B9; /* Verde suave claro */
+    --cor-verde-medio: #A8C69F; /* Verde médio */
+    --cor-verde-escuro: #7FA575; /* Verde escuro */
+    --cor-marrom-claro: #D9C5B2; /* Marrom claro */
+    --cor-marrom-medio: #C9A686; /* Marrom médio */
+    --cor-marrom-escuro: #8B7355; /* Marrom escuro (cor principal de texto) */
+    --cor-bege: #F5EFE6; /* Bege para fundos */
+    --cor-creme: #FFF8E8; /* Creme para fundos claros */
+    --cor-branco: #FFFFFF; /* Branco puro */
+    --cor-amarelo-suave: #F9E4A6; /* Amarelo suave para destaques */
+    --cor-rosa-bebe: #F2D7D9; /* Rosa bebê para categorias */
+    --cor-azul-bebe: #D4E5F2; /* Azul bebê para categorias */
 
     /* Sombras suaves */
-    --sombra-leve: 0 2px 8px rgba(139, 115, 85, 0.1);
-    --sombra-media: 0 4px 12px rgba(139, 115, 85, 0.15);
-    --sombra-forte: 0 6px 20px rgba(139, 115, 85, 0.2);
+    --sombra-leve: 0 2px 8px rgba(139, 115, 85, 0.1); /* Sombra sutil */
+    --sombra-media: 0 4px 12px rgba(139, 115, 85, 0.15); /* Sombra média */
+    --sombra-forte: 0 6px 20px rgba(139, 115, 85, 0.2); /* Sombra mais intensa */
 
     /* Gradientes */
-    --gradiente-hero: linear-gradient(135deg, #C8D5B9 0%, #F5EFE6 100%);
-    --gradiente-card: linear-gradient(145deg, #FFFFFF 0%, #F5EFE6 100%);
+    --gradiente-hero: linear-gradient(135deg, #C8D5B9 0%, #F5EFE6 100%); /* Gradiente para seção hero */
+    --gradiente-card: linear-gradient(145deg, #FFFFFF 0%, #F5EFE6 100%); /* Gradiente para cartões */
 
     /* Espaçamentos */
-    --espacamento-xs: 0.5rem;
-    --espacamento-sm: 1rem;
-    --espacamento-md: 1.5rem;
-    --espacamento-lg: 2rem;
-    --espacamento-xl: 3rem;
+    --espacamento-xs: 0.5rem; /* Espaçamento extra pequeno - 8px */
+    --espacamento-sm: 1rem; /* Espaçamento pequeno - 16px */
+    --espacamento-md: 1.5rem; /* Espaçamento médio - 24px */
+    --espacamento-lg: 2rem; /* Espaçamento grande - 32px */
+    --espacamento-xl: 3rem; /* Espaçamento extra grande - 48px */
 
     /* Bordas arredondadas */
-    --border-radius-sm: 8px;
-    --border-radius-md: 12px;
-    --border-radius-lg: 20px;
-    --border-radius-xl: 30px;
+    --border-radius-sm: 8px; /* Raio de borda pequeno */
+    --border-radius-md: 12px; /* Raio de borda médio */
+    --border-radius-lg: 20px; /* Raio de borda grande */
+    --border-radius-xl: 30px; /* Raio de borda extra grande */
 
     /* Transições */
-    --transicao-rapida: 0.2s ease;
-    --transicao-media: 0.3s ease;
-    --transicao-suave: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transicao-rapida: 0.2s ease; /* Transição rápida */
+    --transicao-media: 0.3s ease; /* Transição média */
+    --transicao-suave: 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Transição suave com easing */
 }
 
 /* ==============================================
    RESET E ESTILOS GLOBAIS
    ============================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* Remove margens padrão de todos os elementos */
+    padding: 0; /* Remove preenchimentos padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui bordas e preenchimentos no cálculo de largura/altura */
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Rola suavemente para âncoras */
 }
 
 body {
-    font-family: 'Nunito', sans-serif;
-    background-color: var(--cor-bege);
-    color: var(--cor-marrom-escuro);
-    line-height: 1.6;
-    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif; /* Define fonte principal para o corpo */
+    background-color: var(--cor-bege); /* Define cor de fundo */
+    color: var(--cor-marrom-escuro); /* Define cor do texto principal */
+    line-height: 1.6; /* Define altura da linha para melhor legibilidade */
+    overflow-x: hidden; /* Esconde scroll horizontal */
 }
 
 h1,
@@ -83,1427 +80,1818 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Fredoka', sans-serif;
-    color: var(--cor-marrom-escuro);
-    font-weight: 700;
+    font-family: 'Fredoka', sans-serif; /* Define fonte para títulos */
+    color: var(--cor-marrom-escuro); /* Define cor dos títulos */
+    font-weight: 700; /* Define peso da fonte como negrito */
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    transition: var(--transicao-media);
+    text-decoration: none; /* Remove sublinhado padrão de links */
+    color: inherit; /* Herda a cor do elemento pai */
+    transition: var(--transicao-media); /* Adiciona transição aos links */
 }
 
 ul {
-    list-style: none;
+    list-style: none; /* Remove marcadores padrão de listas */
 }
 
 img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+    max-width: 100%; /* Impede que imagens ultrapassem container */
+    height: auto; /* Mantém proporção da imagem */
+    display: block; /* Remove espaço inferior padrão de imagens */
+}
+
+button {
+    font-family: inherit; /* Herda fonte do corpo */
+    cursor: pointer; /* Muda cursor para pointer em botões */
+    border: none; /* Remove borda padrão */
+    background: none; /* Remove fundo padrão */
 }
 
 /* ==============================================
    CONTAINER E UTILIDADES
    ============================================== */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--espacamento-md);
+    max-width: 1600px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza container */
+    padding: 0 var(--espacamento-md); /* Padding lateral */
 }
 
 .text-center {
-    text-align: center;
+    text-align: center; /* Centraliza texto */
 }
 
 .mb-2 {
-    margin-bottom: var(--espacamento-lg);
+    margin-bottom: var(--espacamento-lg); /* Adiciona margem inferior grande */
 }
 
 .hidden {
-    display: none;
+    display: none; /* Esconde elemento */
+}
+
+/* ==============================================
+   BOTÕES GLOBAIS
+   ============================================== */
+.btn {
+    display: inline-block; /* Permite definir largura e altura */
+    padding: 0.9rem 2rem; /* Padding interno generoso */
+    border-radius: var(--border-radius-xl); /* Bordas bem arredondadas */
+    font-weight: 700; /* Peso da fonte negrito */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial para botões */
+    text-align: center; /* Centraliza texto */
+    transition: var(--transicao-suave); /* Transição suave */
+    border: none; /* Remove borda padrão */
+    cursor: pointer; /* Cursor de pointer */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    font-size: 1rem; /* Tamanho da fonte */
+    position: relative; /* Permite posicionamento de pseudo-elemento */
+    overflow: hidden; /* Esconde overflow do pseudo-elemento */
+}
+
+.btn::before {
+    content: ''; /* Conteúdo vazio para efeito de clique */
+    position: absolute; /* Posicionamento absoluto */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    width: 0; /* Começa com largura zero */
+    height: 0; /* Começa com altura zero */
+    border-radius: 50%; /* Forma circular */
+    background: rgba(255, 255, 255, 0.3); /* Cor branca semi-transparente */
+    transform: translate(-50%, -50%); /* Centraliza */
+    transition: width 0.6s, height 0.6s; /* Transição para expansão */
+}
+
+.btn:hover::before {
+    width: 300px; /* Expande largura */
+    height: 300px; /* Expande altura */
+}
+
+.btn-primary {
+    background: var(--cor-amarelo-suave); /* Fundo amarelo suave */
+    color: var(--cor-marrom-escuro); /* Texto marrom escuro */
+}
+
+.btn-primary:hover {
+    background: #f5d97f; /* Tom mais escuro de amarelo ao passar mouse */
+    transform: translateY(-3px); /* Eleva botão ao passar mouse */
+    box-shadow: var(--sombra-forte); /* Intensifica sombra */
+}
+
+.btn-secondary {
+    background: var(--cor-verde-medio); /* Fundo verde médio */
+    color: var(--cor-branco); /* Texto branco */
+}
+
+.btn-secondary:hover {
+    background: var(--cor-verde-escuro); /* Verde mais escuro no hover */
+    transform: translateY(-3px); /* Eleva botão ao passar mouse */
+    box-shadow: var(--sombra-forte); /* Intensifica sombra */
+}
+
+/* Botão para adicionar ao carrinho nos cards de produto */
+.btn-add-cart {
+    display: inline-flex; /* Usa flexbox para alinhar ícone e texto */
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    gap: var(--espacamento-xs); /* Espaço entre ícone e texto */
+    padding: 0.8rem; /* Espaçamento interno */
+    background: var(--cor-verde-medio); /* Fundo verde */
+    color: var(--cor-branco); /* Texto branco */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    font-weight: 700; /* Negrito */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    font-size: 0.95rem; /* Tamanho de fonte */
+    transition: var(--transicao-media); /* Transição */
+    border: none; /* Remove borda */
+    cursor: pointer; /* Cursor pointer */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    width: 100%; /* Largura total do cartão */
+}
+
+.btn-add-cart:hover {
+    background: var(--cor-verde-escuro); /* Verde mais escuro no hover */
+    transform: scale(1.03); /* Aumenta ligeiramente */
+    box-shadow: var(--sombra-media); /* Intensifica sombra */
+}
+
+.btn-add-cart:active {
+    transform: translateY(0); /* Retorna posição ao clicar */
 }
 
 /* ==============================================
    HEADER E NAVEGAÇÃO
    ============================================== */
 header {
-    background: var(--cor-branco);
-    box-shadow: var(--sombra-media);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 3px solid var(--cor-verde-suave);
+    background: var(--cor-branco); /* Fundo branco */
+    box-shadow: var(--sombra-media); /* Sombra média */
+    position: sticky; /* Fixa header no topo ao rolar */
+    top: 0; /* Posiciona no topo da tela */
+    z-index: 1000; /* Garante que header fique acima de outros elementos */
+    border-bottom: 3px solid var(--cor-verde-suave); /* Adiciona borda inferior decorativa */
 }
 
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--espacamento-md) var(--espacamento-md);
-    gap: var(--espacamento-md);
-    flex-wrap: wrap;
+    display: flex; /* Usa flexbox para layout */
+    align-items: center; /* Alinha itens verticalmente ao centro */
+    justify-content: space-between; /* Espaça itens igualmente */
+    padding: var(--espacamento-md) var(--espacamento-md); /* Adiciona padding */
+    gap: var(--espacamento-md); /* Espaço entre itens flex */
+    flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--cor-marrom-escuro);
-    transition: var(--transicao-media);
-    white-space: nowrap;
+    display: flex; /* Usa flexbox para alinhar ícone e texto */
+    align-items: center; /* Alinha ícone e texto verticalmente */
+    gap: 0.8rem; /* Espaço entre ícone e texto */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial para logo */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    font-weight: 700; /* Peso da fonte */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    transition: var(--transicao-media); /* Adiciona transição */
+    white-space: nowrap; /* Impede quebra de linha do texto da logo */
 }
 
 .logo:hover {
-    color: var(--cor-verde-escuro);
-    transform: scale(1.05);
+    color: var(--cor-verde-escuro); /* Muda cor ao passar mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente ao passar mouse */
 }
 
 .logo-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 3px solid var(--cor-verde-suave);
-    transition: var(--transicao-media);
+    width: 50px; /* Largura fixa para logo */
+    height: 50px; /* Altura fixa para logo */
+    border-radius: 50%; /* Torna imagem circular */
+    border: 3px solid var(--cor-verde-suave); /* Adiciona borda */
+    transition: var(--transicao-media); /* Adiciona transição */
+    object-fit: cover; /* Preenche mantendo proporção */
 }
 
 .logo:hover .logo-img {
-    border-color: var(--cor-verde-medio);
-    transform: rotate(10deg);
+    border-color: var(--cor-verde-medio); /* Muda cor da borda ao passar mouse */
+    transform: rotate(10deg); /* Rotaciona imagem ao passar mouse */
 }
 
 .search-bar {
-    display: flex;
-    align-items: center;
-    background: var(--cor-bege);
-    border-radius: var(--border-radius-xl);
-    padding: 0.5rem 1rem;
-    flex: 1;
-    max-width: 400px;
-    box-shadow: var(--sombra-leve);
-    border: 2px solid transparent;
-    transition: var(--transicao-media);
+    display: flex; /* Usa flexbox para alinhar input e botão */
+    align-items: center; /* Alinha verticalmente */
+    background: var(--cor-bege); /* Cor de fundo */
+    border-radius: var(--border-radius-xl); /* Bordas arredondadas */
+    padding: 0.5rem 1rem; /* Preenchimento interno */
+    flex: 1; /* Ocupa espaço disponível */
+    max-width: 400px; /* Largura máxima */
+    box-shadow: var(--sombra-leve); /* Adiciona sombra */
+    border: 2px solid transparent; /* Borda transparente inicial */
+    transition: var(--transicao-media); /* Adiciona transição */
 }
 
 .search-bar:focus-within {
-    border-color: var(--cor-verde-medio);
-    box-shadow: var(--sombra-media);
+    border-color: var(--cor-verde-medio); /* Muda cor da borda quando em foco */
+    box-shadow: var(--sombra-media); /* Intensifica sombra quando em foco */
 }
 
 .search-bar input {
-    flex: 1;
-    border: none;
-    background: transparent;
-    outline: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 0.95rem;
-    color: var(--cor-marrom-escuro);
-    padding: 0.3rem 0;
+    flex: 1; /* Input ocupa espaço disponível */
+    border: none; /* Remove borda padrão */
+    background: transparent; /* Fundo transparente */
+    outline: none; /* Remove contorno padrão */
+    font-family: 'Nunito', sans-serif; /* Define fonte */
+    font-size: 0.95rem; /* Tamanho da fonte */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    padding: 0.3rem 0; /* Preenchimento vertical */
 }
 
 .search-bar input::placeholder {
-    color: var(--cor-marrom-medio);
+    color: var(--cor-marrom-medio); /* Cor do texto placeholder */
+    opacity: 0.7; /* Opacidade reduzida */
 }
 
 .search-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transicao-rapida);
+    background: transparent; /* Fundo transparente */
+    border: none; /* Remove borda */
+    cursor: pointer; /* Muda cursor para pointer */
+    padding: 0.3rem; /* Preenchimento interno */
+    display: flex; /* Usa flexbox para centralizar ícone */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    transition: var(--transicao-rapida); /* Adiciona transição rápida */
 }
 
 .search-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Aumenta ligeiramente ao passar mouse */
 }
 
 .search-icon-img {
-    width: 20px;
-    height: 20px;
-    opacity: 0.7;
+    width: 20px; /* Largura do ícone */
+    height: 20px; /* Altura do ícone */
+    opacity: 0.7; /* Opacidade reduzida */
 }
 
 .search-btn:hover .search-icon-img {
-    opacity: 1;
+    opacity: 1; /* Opacidade total ao passar mouse */
 }
 
 nav {
-    display: flex;
+    display: flex; /* Usa flexbox para navegação */
 }
 
 .nav-links {
-    display: flex;
-    gap: var(--espacamento-md);
-    align-items: center;
+    display: flex; /* Usa flexbox para links */
+    gap: var(--espacamento-md); /* Espaço entre links */
+    align-items: center; /* Alinha verticalmente */
 }
 
 .nav-links li a {
-    font-weight: 600;
-    color: var(--cor-marrom-escuro);
-    padding: 0.5rem 1rem;
-    border-radius: var(--border-radius-md);
-    transition: var(--transicao-media);
-    position: relative;
-    overflow: hidden;
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    padding: 0.5rem 1rem; /* Preenchimento interno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    transition: var(--transicao-media); /* Adiciona transição */
+    position: relative; /* Permite posicionamento de pseudo-elemento */
+    overflow: hidden; /* Esconde overflow do pseudo-elemento */
 }
 
 .nav-links li a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: var(--cor-verde-medio);
-    transition: var(--transicao-suave);
+    content: ''; /* Conteúdo vazio para pseudo-elemento */
+    position: absolute; /* Posicionamento absoluto */
+    bottom: 0; /* Alinha na parte inferior */
+    left: 50%; /* Começa no centro */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    width: 0; /* Largura inicial zero */
+    height: 3px; /* Altura da linha */
+    background: var(--cor-verde-medio); /* Cor da linha */
+    transition: var(--transicao-suave); /* Transição suave */
 }
 
 .nav-links li a:hover {
-    color: var(--cor-verde-escuro);
-    background: var(--cor-bege);
+    color: var(--cor-verde-escuro); /* Muda cor do texto ao passar mouse */
+    background: var(--cor-bege); /* Adiciona fundo ao passar mouse */
 }
 
 .nav-links li a:hover::before {
-    width: 80%;
+    width: 80%; /* Expande linha para 80% da largura */
 }
 
+/* Ícone do carrinho dentro da lista de navegação */
 .cart-icon {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem;
-    background: var(--cor-verde-suave);
-    border-radius: 50%;
-    transition: var(--transicao-media);
-    box-shadow: var(--sombra-leve);
+    position: relative; /* Permite posicionamento do contador */
+    display: flex; /* Usa flexbox para alinhamento */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    width: 50px; /* Largura fixa para o círculo */
+    height: 50px; /* Altura fixa para o círculo */
+    padding: 0.8rem; /* Espaçamento interno */
+    background: var(--cor-verde-suave); /* Fundo verde suave */
+    border-radius: 50%; /* Torna círculo */
+    transition: var(--transicao-media); /* Transição suave */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    text-decoration: none; /* Remove sublinhado do link */
 }
 
 .cart-icon:hover {
-    background: var(--cor-verde-medio);
-    transform: scale(1.1);
-    box-shadow: var(--sombra-media);
+    background: var(--cor-verde-medio); /* Verde mais escuro no hover */
+    transform: scale(1.1); /* Aumenta ligeiramente */
+    box-shadow: var(--sombra-media); /* Intensifica sombra */
 }
 
 .cart-icon-img {
-    width: 28px;
-    height: 28px;
-}
-
-.cart-count {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    background: var(--cor-amarelo-suave);
-    color: var(--cor-marrom-escuro);
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 700;
-    border: 2px solid var(--cor-branco);
-    box-shadow: var(--sombra-leve);
+    width: 28px; /* Largura do ícone */
+    height: 28px; /* Altura do ícone */
 }
 
 /* ==============================================
    SEÇÃO HERO (BANNER PRINCIPAL)
    ============================================== */
 .hero {
-    background: var(--gradiente-hero);
-    padding: var(--espacamento-xl) 0;
-    margin-bottom: var(--espacamento-xl);
-    position: relative;
-    overflow: hidden;
-    border-bottom-left-radius: var(--border-radius-xl);
-    border-bottom-right-radius: var(--border-radius-xl);
+    background: var(--gradiente-hero); /* Gradiente de fundo */
+    padding: var(--espacamento-xl) 0; /* Preenchimento vertical grande */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
+    position: relative; /* Permite posicionamento de pseudo-elemento */
+    overflow: hidden; /* Esconde overflow do pseudo-elemento */
+    border-bottom-left-radius: var(--border-radius-xl); /* Bordas arredondadas inferiores */
+    border-bottom-right-radius: var(--border-radius-xl); /* Bordas arredondadas inferiores */
 }
 
 .hero::before {
-    content: '🧸🎨🎈🌈⭐';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 10rem;
-    opacity: 0.05;
-    pointer-events: none;
-    white-space: nowrap;
+    content: '🧸🎨🎈🌈⭐'; /* Emojis decorativos */
+    position: absolute; /* Posicionamento absoluto */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta posição central */
+    font-size: 10rem; /* Tamanho grande dos emojis */
+    opacity: 0.05; /* Opacidade muito baixa */
+    pointer-events: none; /* Não interfere com interação do usuário */
+    white-space: nowrap; /* Impede quebra de linha */
 }
 
 .hero .container {
-    text-align: center;
-    position: relative;
-    z-index: 1;
+    text-align: center; /* Centraliza conteúdo */
+    position: relative; /* Coloca acima do pseudo-elemento */
+    z-index: 1; /* Garante que conteúdo fique acima do fundo */
 }
 
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: var(--espacamento-md);
-    color: var(--cor-marrom-escuro);
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7);
-    animation: slideInDown 0.8s ease-out;
+    font-size: 3rem; /* Tamanho grande para título principal */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Sombra de texto */
+    animation: slideInDown 0.8s ease-out; /* Animação de entrada */
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: var(--cor-marrom-medio);
-    max-width: 600px;
-    margin: 0 auto var(--espacamento-lg);
-    animation: fadeIn 1s ease-out 0.3s both;
+    font-size: 1.2rem; /* Tamanho da fonte */
+    color: var(--cor-marrom-medio); /* Cor do texto */
+    max-width: 600px; /* Largura máxima para melhor leitura */
+    margin: 0 auto var(--espacamento-lg); /* Centraliza e adiciona margem inferior */
+    animation: fadeIn 1s ease-out 0.3s both; /* Animação de entrada com delay */
 }
 
 @keyframes slideInDown {
     from {
-        opacity: 0;
-        transform: translateY(-30px);
+        opacity: 0; /* Inicia invisível */
+        transform: translateY(-30px); /* Inicia deslocado para cima */
     }
-
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Termina visível */
+        transform: translateY(0); /* Termina na posição normal */
     }
 }
 
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        opacity: 0; /* Inicia invisível */
     }
-
     to {
-        opacity: 1;
+        opacity: 1; /* Termina visível */
     }
-}
-
-@keyframes bounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* ==============================================
-   BOTÕES
-   ============================================== */
-.btn {
-    display: inline-block;
-    padding: 0.9rem 2rem;
-    border-radius: var(--border-radius-xl);
-    font-weight: 700;
-    font-family: 'Fredoka', sans-serif;
-    text-align: center;
-    cursor: pointer;
-    transition: var(--transicao-suave);
-    border: none;
-    font-size: 1rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--sombra-leve);
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.btn-secondary {
-    background: var(--cor-verde-medio);
-    color: var(--cor-branco);
-}
-
-.btn-secondary:hover {
-    background: var(--cor-verde-escuro);
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-forte);
-}
-
-.btn-primary {
-    background: var(--cor-amarelo-suave);
-    color: var(--cor-marrom-escuro);
-}
-
-.btn-primary:hover {
-    background: #f5d97f;
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-forte);
 }
 
 /* ==============================================
    CATEGORIAS
    ============================================== */
 .category-title-styled {
-    font-size: 2.5rem;
-    color: var(--cor-marrom-escuro);
-    position: relative;
-    padding-bottom: var(--espacamento-md);
-}
-
-.category-title-styled::after {
-    content: '🐝';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
+    text-align: center; /* Centraliza título */
+    font-size: 2.5rem; /* Tamanho grande */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
 }
 
 .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espacamento-lg);
-    margin-bottom: var(--espacamento-xl);
+    display: grid; /* Usa CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: var(--espacamento-lg); /* Espaço entre cartões */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
 }
 
 .category-card {
-    background: var(--gradiente-card);
-    border-radius: var(--border-radius-lg);
-    padding: var(--espacamento-lg);
-    text-align: center;
-    transition: var(--transicao-suave);
-    box-shadow: var(--sombra-leve);
-    border: 3px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.category-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: var(--cor-verde-suave);
-    transition: var(--transicao-media);
+    background: var(--gradiente-card); /* Gradiente de fundo */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    padding: var(--espacamento-lg); /* Padding interno */
+    text-align: center; /* Centraliza conteúdo */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    transition: var(--transicao-suave); /* Transição suave */
+    border: 3px solid transparent; /* Borda transparente por padrão */
 }
 
 .category-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--sombra-forte);
-    border-color: var(--cor-verde-medio);
-}
-
-.category-card:hover::before {
-    height: 8px;
-}
-
-.cat-piticos::before {
-    background: var(--cor-rosa-bebe);
-}
-
-.cat-piticos:hover {
-    border-color: var(--cor-rosa-bebe);
-}
-
-.cat-fofinho::before {
-    background: var(--cor-amarelo-suave);
-}
-
-.cat-fofinho:hover {
-    border-color: var(--cor-amarelo-suave);
-}
-
-.cat-crescidinhos::before {
-    background: var(--cor-azul-bebe);
-}
-
-.cat-crescidinhos:hover {
-    border-color: var(--cor-azul-bebe);
-}
-
-.cat-grandinhos::before {
-    background: var(--cor-verde-medio);
-}
-
-.cat-grandinhos:hover {
-    border-color: var(--cor-verde-medio);
+    transform: translateY(-10px); /* Eleva ao passar mouse */
+    box-shadow: var(--sombra-forte); /* Intensifica sombra */
+    border-color: var(--cor-verde-medio); /* Mostra borda verde */
 }
 
 .category-img {
-    margin-bottom: var(--espacamento-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
 }
 
 .category-icon-img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    transition: var(--transicao-suave);
-}
-
-.category-card:hover .category-icon-img {
-    transform: scale(1.15) rotate(5deg);
-    animation: bounce 0.6s ease-in-out;
+    width: 80px; /* Largura do ícone */
+    height: 80px; /* Altura do ícone */
+    margin: 0 auto; /* Centraliza */
 }
 
 .category-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--espacamento-xs);
-    color: var(--cor-marrom-escuro);
-    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem; /* Tamanho médio */
+    margin-bottom: var(--espacamento-xs); /* Margem inferior pequena */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
 }
 
 .category-card p {
-    color: var(--cor-marrom-medio);
-    font-size: 0.95rem;
-    font-weight: 600;
+    color: var(--cor-marrom-medio); /* Cor marrom médio */
+    font-weight: 600; /* Semi-negrito */
+}
+
+/* Cores específicas para cada categoria */
+.cat-piticos {
+    border-top: 5px solid var(--cor-rosa-bebe); /* Borda superior rosa */
+}
+
+.cat-fofinho {
+    border-top: 5px solid var(--cor-azul-bebe); /* Borda superior azul */
+}
+
+.cat-crescidinhos {
+    border-top: 5px solid var(--cor-amarelo-suave); /* Borda superior amarela */
+}
+
+.cat-grandinhos {
+    border-top: 5px solid var(--cor-verde-medio); /* Borda superior verde */
+}
+
+/* ==============================================
+   BANNERS DE CATEGORIA
+   ============================================== */
+.category-banner {
+    background: var(--gradiente-hero); /* Gradiente de fundo */
+    padding: var(--espacamento-xl) 0; /* Padding vertical grande */
+    text-align: center; /* Centraliza conteúdo */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+}
+
+.category-banner h1 {
+    font-size: 2.5rem; /* Tamanho grande */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
+}
+
+.category-banner p {
+    font-size: 1.1rem; /* Tamanho médio */
+    color: var(--cor-marrom-medio); /* Cor marrom médio */
+    max-width: 700px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza */
 }
 
 /* ==============================================
    PRODUTOS
    ============================================== */
+.products-section {
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
+}
+
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--espacamento-lg);
-    margin-bottom: var(--espacamento-xl);
+    display: grid; /* Usa CSS Grid */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Colunas responsivas */
+    gap: var(--espacamento-lg); /* Espaço entre produtos */
 }
 
 .product-card {
-    background: var(--cor-branco);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--sombra-leve);
-    transition: var(--transicao-suave);
-    border: 2px solid var(--cor-bege);
-    position: relative;
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    overflow: hidden; /* Esconde overflow */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    transition: var(--transicao-suave); /* Transição suave */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Empilha conteúdo verticalmente */
 }
 
 .product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--sombra-forte);
-    border-color: var(--cor-verde-medio);
+    transform: translateY(-5px); /* Eleva ao passar mouse */
+    box-shadow: var(--sombra-forte); /* Intensifica sombra */
 }
 
-.product-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    background: var(--cor-creme);
-    transition: var(--transicao-media);
+.product-image {
+    width: 100%; /* Largura total */
+    height: 250px; /* Altura fixa */
+    overflow: hidden; /* Esconde overflow */
+    background: var(--cor-creme); /* Fundo creme */
 }
 
-.product-card:hover .product-img {
-    transform: scale(1.05);
+.product-image img {
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    object-fit: cover; /* Preenche mantendo proporção */
+    transition: var(--transicao-media); /* Transição para zoom */
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1); /* Zoom na imagem ao passar mouse no card */
 }
 
 .product-info {
-    padding: var(--espacamento-md);
+    padding: var(--espacamento-md); /* Padding interno */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Empilha verticalmente */
+    flex: 1; /* Ocupa espaço disponível */
 }
 
 .product-name {
-    font-size: 1.2rem;
-    margin-bottom: var(--espacamento-xs);
-    color: var(--cor-marrom-escuro);
-    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem; /* Tamanho médio */
+    margin-bottom: var(--espacamento-sm); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
 }
 
 .product-description {
-    font-size: 0.9rem;
-    color: var(--cor-marrom-medio);
-    margin-bottom: var(--espacamento-sm);
-    line-height: 1.5;
+    font-size: 0.95rem; /* Tamanho pequeno */
+    color: var(--cor-marrom-medio); /* Cor marrom médio */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    flex: 1; /* Ocupa espaço disponível */
+    line-height: 1.5; /* Altura da linha */
+}
+
+.product-footer {
+    display: flex; /* Usa flexbox */
+    justify-content: space-between; /* Espaça elementos nas pontas */
+    align-items: center; /* Alinha verticalmente */
+    gap: var(--espacamento-sm); /* Espaço entre preço e botão */
+    margin-top: var(--espacamento-sm); /* Margem superior para separação */
 }
 
 .product-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--cor-verde-escuro);
-    margin-bottom: var(--espacamento-md);
-    font-family: 'Fredoka', sans-serif;
-}
-
-.add-to-cart {
-    width: 100%;
-    padding: 0.8rem;
-    background: var(--cor-verde-medio);
-    color: var(--cor-branco);
-    border: none;
-    border-radius: var(--border-radius-md);
-    font-weight: 700;
-    font-family: 'Fredoka', sans-serif;
-    cursor: pointer;
-    transition: var(--transicao-media);
-    font-size: 1rem;
-}
-
-.add-to-cart:hover {
-    background: var(--cor-verde-escuro);
-    transform: scale(1.03);
+    font-size: 1.5rem; /* Tamanho grande */
+    font-weight: 700; /* Negrito */
+    color: var(--cor-verde-escuro); /* Cor verde para destaque */
 }
 
 /* ==============================================
    FOOTER
    ============================================== */
 footer {
-    background: var(--cor-marrom-escuro);
-    color: var(--cor-bege);
-    padding: var(--espacamento-xl) 0 var(--espacamento-md);
-    margin-top: var(--espacamento-xl);
+    background: var(--cor-marrom-escuro); /* Fundo marrom escuro */
+    color: var(--cor-bege); /* Texto bege */
+    padding: var(--espacamento-xl) 0 var(--espacamento-md); /* Padding vertical */
+    margin-top: var(--espacamento-xl); /* Margem superior grande */
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espacamento-lg);
-    margin-bottom: var(--espacamento-lg);
+    display: grid; /* Usa CSS Grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: var(--espacamento-lg); /* Espaço entre seções */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior */
 }
 
 .footer-section h3 {
-    color: var(--cor-amarelo-suave);
-    margin-bottom: var(--espacamento-md);
-    font-size: 1.3rem;
-    font-family: 'Fredoka', sans-serif;
+    color: var(--cor-amarelo-suave); /* Cor amarela para títulos */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    font-size: 1.3rem; /* Tamanho médio */
 }
 
-.footer-section p {
-    line-height: 1.8;
-    color: var(--cor-bege);
+.footer-section p,
+.footer-section li {
+    margin-bottom: var(--espacamento-xs); /* Margem inferior pequena */
+    color: var(--cor-bege); /* Cor bege */
 }
 
-.footer-section ul {
-    list-style: none;
+.footer-section a {
+    color: var(--cor-bege); /* Cor bege */
+    transition: var(--transicao-media); /* Transição */
 }
 
-.footer-section ul li {
-    margin-bottom: var(--espacamento-xs);
-}
-
-.footer-section ul li a {
-    color: var(--cor-bege);
-    transition: var(--transicao-media);
-    display: inline-block;
-}
-
-.footer-section ul li a:hover {
-    color: var(--cor-amarelo-suave);
-    transform: translateX(5px);
+.footer-section a:hover {
+    color: var(--cor-amarelo-suave); /* Cor amarela no hover */
+    transform: translateX(5px); /* Move para direita */
 }
 
 .footer-copyright {
-    text-align: center;
-    padding-top: var(--espacamento-md);
-    border-top: 1px solid var(--cor-marrom-medio);
-    color: var(--cor-marrom-claro);
-    font-size: 0.9rem;
+    text-align: center; /* Centraliza texto */
+    padding-top: var(--espacamento-md); /* Padding superior */
+    border-top: 1px solid var(--cor-marrom-medio); /* Linha separadora */
+    color: var(--cor-marrom-claro); /* Cor mais clara */
+    font-size: 0.9rem; /* Tamanho pequeno */
 }
 
 /* ==============================================
-   RESPONSIVIDADE - TABLETS
+   PÁGINA DO CARRINHO DE COMPRAS
    ============================================== */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: var(--espacamento-sm);
-    }
 
-    .search-bar {
-        max-width: 100%;
-        order: 3;
-    }
+/* Container principal da página do carrinho */
+.cart-page {
+    min-height: 70vh; /* Altura mínima para evitar footer flutuante */
+    padding: var(--espacamento-xl) 0; /* Padding vertical grande */
+    background: var(--cor-bege); /* Cor de fundo bege */
+}
 
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: var(--espacamento-sm);
-    }
+/* Título da página do carrinho */
+.cart-page h1 {
+    text-align: center; /* Centraliza título */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande para espaçamento */
+    font-size: 2.5rem; /* Tamanho grande */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+}
 
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .category-title-styled {
-        font-size: 2rem;
-    }
-
-    .categories-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: var(--espacamento-md);
-    }
-
-    .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: var(--espacamento-md);
-    }
+/* Container principal que agrupa itens e resumo lado a lado */
+.cart-container {
+    display: grid; /* Usa CSS Grid para layout */
+    grid-template-columns: 1fr 400px; /* Coluna principal para itens e sidebar para resumo */
+    gap: var(--espacamento-xl); /* Espaço grande entre colunas */
+    align-items: start; /* Alinha itens ao topo */
 }
 
 /* ==============================================
-   RESPONSIVIDADE - MOBILE
+   ITENS DO CARRINHO (CARDS)
    ============================================== */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 var(--espacamento-sm);
-    }
 
-    .logo {
-        font-size: 1.2rem;
-    }
+/* Container de todos os itens */
+.cart-items {
+    display: flex; /* Usa flexbox para empilhar itens */
+    flex-direction: column; /* Empilha verticalmente */
+    gap: var(--espacamento-md); /* Espaço entre cada card de item */
+}
 
-    .logo-img {
-        width: 40px;
-        height: 40px;
-    }
+/* Card individual de cada item do carrinho */
+.cart-item {
+    background: var(--cor-branco); /* Fundo branco limpo */
+    border-radius: var(--border-radius-lg); /* Bordas bem arredondadas */
+    padding: var(--espacamento-lg); /* Padding interno grande */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    display: grid; /* Usa grid para organizar conteúdo */
+    grid-template-columns: 120px 1fr auto auto auto; /* Colunas: imagem, detalhes, quantidade, subtotal, remover */
+    gap: var(--espacamento-md); /* Espaço entre colunas */
+    align-items: center; /* Alinha verticalmente ao centro */
+    transition: var(--transicao-suave); /* Transição suave */
+    border-left: 4px solid var(--cor-verde-medio); /* Borda lateral colorida para destaque */
+}
 
-    .nav-links li a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.9rem;
-    }
+/* Efeito hover no card do item */
+.cart-item:hover {
+    box-shadow: var(--sombra-media); /* Intensifica sombra ao passar mouse */
+    transform: translateY(-2px); /* Eleva levemente o card */
+}
 
-    .hero {
-        padding: var(--espacamento-lg) 0;
-    }
+/* Container da imagem do produto */
+.item-image {
+    width: 120px; /* Largura fixa */
+    height: 120px; /* Altura fixa - quadrado perfeito */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    overflow: hidden; /* Esconde partes que excedem container */
+    background: var(--cor-creme); /* Fundo creme caso imagem não carregue */
+    display: flex; /* Usa flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
 
-    .hero h1 {
-        font-size: 1.5rem;
-    }
+/* Imagem do produto */
+.item-image img {
+    width: 100%; /* Largura total do container */
+    height: 100%; /* Altura total do container */
+    object-fit: cover; /* Preenche mantendo proporção */
+    transition: var(--transicao-media); /* Transição para zoom */
+}
 
-    .hero p {
-        font-size: 0.9rem;
-    }
+/* Zoom na imagem ao passar mouse sobre ela */
+.item-image:hover img {
+    transform: scale(1.05); /* Aumenta levemente a imagem */
+}
 
-    .btn {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.9rem;
-    }
+/* Detalhes do produto (nome e preço unitário) */
+.item-details {
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Empilha verticalmente */
+    gap: var(--espacamento-xs); /* Espaço pequeno entre elementos */
+    min-width: 0; /* Permite quebra de texto longo */
+}
 
-    .category-title-styled {
-        font-size: 1.5rem;
-    }
+/* Nome do produto */
+.item-details h3 {
+    font-size: 1.2rem; /* Tamanho médio */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
+    margin: 0; /* Remove margem */
+    font-weight: 700; /* Negrito */
+    overflow: hidden; /* Esconde overflow */
+    text-overflow: ellipsis; /* Adiciona reticências em texto longo */
+    white-space: nowrap; /* Não quebra linha */
+}
 
-    .categories-grid {
-        grid-template-columns: 1fr;
-    }
+/* Preço unitário do produto */
+.item-price {
+    font-size: 1rem; /* Tamanho padrão */
+    color: var(--cor-verde-escuro); /* Cor verde para destaque */
+    font-weight: 600; /* Semi-negrito */
+    margin: 0; /* Remove margem */
+}
 
-    .products-grid {
-        grid-template-columns: 1fr;
-    }
+/* Container da quantidade */
+.item-quantity {
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Empilha verticalmente */
+    gap: var(--espacamento-xs); /* Espaço pequeno */
+    align-items: center; /* Centraliza horizontalmente */
+}
 
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
+/* Label "Quantidade" */
+.item-quantity label {
+    font-size: 0.9rem; /* Tamanho pequeno */
+    color: var(--cor-marrom-medio); /* Cor marrom médio */
+    font-weight: 600; /* Semi-negrito */
+    margin: 0; /* Remove margem */
+}
+
+/* Input numérico de quantidade */
+.item-quantity input[type="number"] {
+    width: 70px; /* Largura fixa */
+    padding: 0.6rem; /* Padding interno */
+    border: 2px solid var(--cor-bege); /* Borda sutil */
+    border-radius: var(--border-radius-sm); /* Bordas arredondadas */
+    text-align: center; /* Centraliza texto */
+    font-size: 1rem; /* Tamanho padrão */
+    font-weight: 600; /* Semi-negrito */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    background: var(--cor-creme); /* Fundo creme */
+    transition: var(--transicao-media); /* Transição */
+}
+
+/* Foco no input de quantidade */
+.item-quantity input[type="number"]:focus {
+    outline: none; /* Remove contorno padrão */
+    border-color: var(--cor-verde-medio); /* Muda cor da borda */
+    background: var(--cor-branco); /* Muda fundo para branco */
+    box-shadow: 0 0 0 3px rgba(168, 198, 159, 0.1); /* Sombra de foco */
+}
+
+/* Remove setas do input number no Chrome/Safari */
+.item-quantity input[type="number"]::-webkit-outer-spin-button,
+.item-quantity input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Remove aparência padrão */
+    appearance: none; /* Remove aparência padrão (propriedade padrão para compatibilidade) */
+    margin: 0; /* Remove margem */
+}
+
+/* Remove setas do input number no Firefox */
+.item-quantity input[type="number"] {
+    -moz-appearance: textfield; /* Remove aparência padrão */
+}
+
+/* Subtotal do item (preço × quantidade) */
+.item-subtotal {
+    min-width: 100px; /* Largura mínima */
+    text-align: right; /* Alinha à direita */
+}
+
+/* Valor do subtotal */
+.item-subtotal p {
+    font-size: 1.3rem; /* Tamanho grande */
+    font-weight: 700; /* Negrito */
+    color: var(--cor-verde-escuro); /* Cor verde para destaque */
+    margin: 0; /* Remove margem */
+}
+
+/* Container do botão de remover */
+.item-remove {
+    display: flex; /* Usa flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+}
+
+/* Botão de remover item */
+.btn-remove {
+    width: 40px; /* Largura fixa */
+    height: 40px; /* Altura fixa - botão quadrado */
+    border-radius: 50%; /* Círculo perfeito */
+    border: none; /* Remove borda */
+    background: var(--cor-rosa-bebe); /* Fundo rosa bebê */
+    color: #8B4049; /* Cor do texto vermelho escuro */
+    font-size: 1.5rem; /* Tamanho grande para o X */
+    font-weight: 700; /* Negrito */
+    cursor: pointer; /* Cursor de pointer */
+    transition: var(--transicao-media); /* Transição */
+    display: flex; /* Usa flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    line-height: 1; /* Remove espaço extra */
+}
+
+/* Hover no botão de remover */
+.btn-remove:hover {
+    background: #f2a0a7; /* Cor mais forte ao passar mouse */
+    transform: scale(1.1) rotate(90deg); /* Aumenta e rotaciona */
+}
+
+/* Estado ativo do botão remover */
+.btn-remove:active {
+    transform: scale(0.95); /* Diminui ao clicar */
 }
 
 /* ==============================================
-   ANIMAÇÕES ADICIONAIS
+   CARRINHO VAZIO
    ============================================== */
-@keyframes float {
 
-    0%,
-    100% {
-        transform: translateY(0);
-    }
+/* Container quando carrinho está vazio */
+.cart-empty {
+    text-align: center; /* Centraliza conteúdo */
+    padding: var(--espacamento-xl); /* Padding grande */
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    box-shadow: var(--sombra-media); /* Sombra média */
 
-    50% {
-        transform: translateY(-10px);
-    }
+    /* Centralização */
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
 }
 
-.category-card,
-.product-card {
-    animation: fadeInUp 0.6s ease-out both;
+
+/* Título do carrinho vazio */
+.cart-empty h2 {
+    font-size: 2rem; /* Tamanho grande */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
 }
 
-.category-card:nth-child(1) {
-    animation-delay: 0.1s;
+/* Texto do carrinho vazio */
+.cart-empty p {
+    font-size: 1.1rem; /* Tamanho médio */
+    color: var(--cor-marrom-medio); /* Cor marrom médio */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande */
 }
 
-.category-card:nth-child(2) {
-    animation-delay: 0.2s;
+/* Botão no carrinho vazio */
+.cart-empty .btn {
+    margin-top: var(--espacamento-md); /* Margem superior para espaçamento */
 }
 
-.category-card:nth-child(3) {
-    animation-delay: 0.3s;
+/* ==============================================
+   RESUMO DO PEDIDO (SIDEBAR)
+   ============================================== */
+
+/* Container do resumo */
+.cart-summary {
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    padding: var(--espacamento-lg); /* Padding interno grande */
+    box-shadow: var(--sombra-media); /* Sombra média */
+    position: sticky; /* Fixa ao rolar */
+    top: var(--espacamento-lg); /* Distância do topo */
+    border-top: 5px solid var(--cor-verde-medio); /* Borda superior colorida */
 }
 
-.category-card:nth-child(4) {
-    animation-delay: 0.4s;
+/* Título do resumo */
+.cart-summary h3 {
+    font-size: 1.5rem; /* Tamanho médio-grande */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande para espaçamento */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    text-align: center; /* Centraliza título */
+    padding-bottom: var(--espacamento-md); /* Padding inferior */
+    border-bottom: 2px solid var(--cor-bege); /* Linha separadora */
 }
 
+/* Linha de informação no resumo */
+.summary-row {
+    display: flex; /* Usa flexbox */
+    justify-content: space-between; /* Espaça elementos nas pontas */
+    align-items: center; /* Alinha verticalmente */
+    margin-bottom: var(--espacamento-md); /* Margem inferior para espaçamento */
+    font-size: 1rem; /* Tamanho padrão */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+}
+
+/* Primeira parte da linha (label) */
+.summary-row span:first-child {
+    font-weight: 600; /* Semi-negrito */
+}
+
+/* Segunda parte da linha (valor) */
+.summary-row span:last-child {
+    font-weight: 700; /* Negrito */
+    color: var(--cor-verde-escuro); /* Cor verde */
+}
+
+/* Linha de observação (frete) */
+.summary-row.obs {
+    justify-content: center; /* Centraliza conteúdo */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande */
+}
+
+/* Texto pequeno da observação */
+.summary-row.obs small {
+    font-size: 0.85rem; /* Tamanho pequeno */
+    color: var(--cor-marrom-medio); /* Cor marrom médio */
+    font-style: italic; /* Itálico */
+}
+
+/* Linha do total */
+.summary-total {
+    display: flex; /* Usa flexbox */
+    justify-content: space-between; /* Espaça elementos nas pontas */
+    align-items: center; /* Alinha verticalmente */
+    padding-top: var(--espacamento-lg); /* Padding superior grande para espaçamento */
+    margin-top: var(--espacamento-md); /* Margem superior */
+    border-top: 2px solid var(--cor-bege); /* Linha separadora */
+    font-size: 1.3rem; /* Tamanho maior */
+    font-weight: 700; /* Negrito */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+}
+
+/* Valor do total */
+.summary-total span:last-child {
+    font-size: 1.5rem; /* Tamanho grande */
+    color: var(--cor-verde-escuro); /* Cor verde destaque */
+}
+
+/* Botão de finalizar compra */
+.btn-checkout {
+    width: 100%; /* Largura total */
+    margin-top: var(--espacamento-lg); /* Margem superior grande para espaçamento */
+    padding: 1rem; /* Padding interno grande */
+    font-size: 1.1rem; /* Tamanho maior */
+    font-weight: 700; /* Negrito */
+    text-align: center; /* Centraliza texto */
+}
+
+/* Link de continuar comprando */
+.btn-continue {
+    display: block; /* Ocupa linha inteira */
+    text-align: center; /* Centraliza texto */
+    margin-top: var(--espacamento-md); /* Margem superior para espaçamento */
+    color: var(--cor-verde-escuro); /* Cor verde */
+    font-weight: 600; /* Semi-negrito */
+    padding: 0.8rem; /* Padding interno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    transition: var(--transicao-media); /* Transição */
+}
+
+/* Hover no link de continuar */
+.btn-continue:hover {
+    background: var(--cor-creme); /* Fundo creme ao passar mouse */
+    color: var(--cor-verde-medio); /* Muda tom de verde */
+}
+
+/* ==============================================
+   ANIMAÇÕES
+   ============================================== */
 @keyframes fadeInUp {
     from {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 0; /* Inicia invisível */
+        transform: translateY(30px); /* Inicia deslocado para baixo */
     }
-
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* Termina visível */
+        transform: translateY(0); /* Termina na posição normal */
     }
+}
+
+/* Animação para cards de categorias e produtos */
+.category-card,
+.product-card {
+    animation: fadeInUp 0.6s ease-out both; /* Animação de entrada */
+}
+
+/* Delays progressivos para animação em sequência */
+.category-card:nth-child(1), .product-card:nth-child(1) {
+    animation-delay: 0.1s; /* Delay para primeiro item */
+}
+
+.category-card:nth-child(2), .product-card:nth-child(2) {
+    animation-delay: 0.2s; /* Delay para segundo item */
+}
+
+.category-card:nth-child(3), .product-card:nth-child(3) {
+    animation-delay: 0.3s; /* Delay para terceiro item */
+}
+
+.category-card:nth-child(4), .product-card:nth-child(4) {
+    animation-delay: 0.4s; /* Delay para quarto item */
 }
 
 /* ==============================================
    SCROLLBAR PERSONALIZADA (Navegadores Webkit)
    ============================================== */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 12px; /* Largura da scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--cor-bege);
+    background: var(--cor-bege); /* Cor do fundo da track */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--cor-verde-medio);
-    border-radius: 6px;
-    border: 3px solid var(--cor-bege);
+    background: var(--cor-verde-medio); /* Cor do "polegar" */
+    border-radius: 6px; /* Bordas arredondadas */
+    border: 3px solid var(--cor-bege); /* Borda para criar espaço */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--cor-verde-escuro);
+    background: var(--cor-verde-escuro); /* Cor mais escura ao passar mouse */
 }
 
 /* ==============================================
    ÁREA ADMINISTRATIVA - LOGIN
    ============================================== */
 .admin-login-page {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradiente-hero);
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh; /* Altura mínima de toda a viewport */
+    display: flex; /* Usa flexbox para centralizar */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    background: var(--gradiente-hero); /* Gradiente de fundo */
+    position: relative; /* Para pseudo-elemento */
+    overflow: hidden; /* Esconde overflow do pseudo-elemento */
 }
 
 .admin-login-page::before {
-    content: '🔐';
-    position: absolute;
-    font-size: 30rem;
-    opacity: 0.03;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+    content: '🔐'; /* Emoji de cadeado */
+    position: absolute; /* Posicionamento absoluto */
+    font-size: 30rem; /* Tamanho gigante */
+    opacity: 0.03; /* Quase transparente */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta posição central */
+    pointer-events: none; /* Não interfere com interação */
 }
 
 .login-container {
-    width: 100%;
-    max-width: 450px;
-    padding: var(--espacamento-md);
-    animation: fadeInUp 0.6s ease-out;
+    width: 100%; /* Largura total */
+    max-width: 450px; /* Largura máxima */
+    padding: var(--espacamento-md); /* Padding lateral */
+    animation: fadeInUp 0.6s ease-out; /* Animação de entrada */
 }
 
 .login-card {
-    background: var(--cor-branco);
-    border-radius: var(--border-radius-lg);
-    padding: var(--espacamento-xl);
-    box-shadow: var(--sombra-forte);
-    border-top: 5px solid var(--cor-verde-medio);
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    padding: var(--espacamento-xl); /* Padding interno grande */
+    box-shadow: var(--sombra-forte); /* Sombra forte */
+    border-top: 5px solid var(--cor-verde-medio); /* Borda superior colorida */
 }
 
 .login-header {
-    text-align: center;
-    margin-bottom: var(--espacamento-lg);
+    text-align: center; /* Centraliza conteúdo */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior */
 }
 
 .login-header h1 {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 2rem;
-    color: var(--cor-marrom-escuro);
-    margin-bottom: var(--espacamento-xs);
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    font-size: 2rem; /* Tamanho grande */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    margin-bottom: var(--espacamento-xs); /* Margem inferior */
 }
 
 .login-header p {
-    color: var(--cor-marrom-medio);
-    font-size: 1.1rem;
-    font-weight: 600;
+    color: var(--cor-marrom-medio); /* Cor do texto mais clara */
+    font-size: 1.1rem; /* Tamanho da fonte */
+    font-weight: 600; /* Peso da fonte semi-negrito */
 }
 
 .login-form {
-    margin-bottom: var(--espacamento-md);
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
 }
 
 .form-group {
-    margin-bottom: var(--espacamento-md);
+    margin-bottom: var(--espacamento-md); /* Margem inferior entre grupos */
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: var(--espacamento-xs);
-    color: var(--cor-marrom-escuro);
-    font-weight: 600;
-    font-size: 0.95rem;
+    display: block; /* Ocupa linha inteira */
+    margin-bottom: var(--espacamento-xs); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    font-size: 0.95rem; /* Tamanho da fonte */
 }
 
 .form-group input {
-    width: 100%;
-    padding: 0.9rem 1.2rem;
-    border: 2px solid var(--cor-bege);
-    border-radius: var(--border-radius-md);
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    color: var(--cor-marrom-escuro);
-    background: var(--cor-creme);
-    transition: var(--transicao-media);
+    width: 100%; /* Largura total */
+    padding: 0.9rem 1.2rem; /* Preenchimento interno */
+    border: 2px solid var(--cor-bege); /* Borda sutil */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    font-family: 'Nunito', sans-serif; /* Fonte */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    background: var(--cor-creme); /* Cor de fundo */
+    transition: var(--transicao-media); /* Transição */
 }
 
 .form-group input:focus {
-    outline: none;
-    border-color: var(--cor-verde-medio);
-    background: var(--cor-branco);
-    box-shadow: 0 0 0 3px rgba(168, 198, 159, 0.1);
+    outline: none; /* Remove contorno padrão */
+    border-color: var(--cor-verde-medio); /* Muda cor da borda */
+    background: var(--cor-branco); /* Muda fundo para branco */
+    box-shadow: 0 0 0 3px rgba(168, 198, 159, 0.1); /* Sombra de foco */
 }
 
 .form-group input::placeholder {
-    color: var(--cor-marrom-medio);
-    opacity: 0.7;
+    color: var(--cor-marrom-medio); /* Cor do placeholder */
+    opacity: 0.7; /* Opacidade reduzida */
 }
 
 .btn-block {
-    width: 100%;
-    margin-top: var(--espacamento-md);
+    width: 100%; /* Largura total */
+    margin-top: var(--espacamento-md); /* Margem superior */
 }
 
 .error-message {
-    background: #f2d7d9;
-    color: #8B4049;
-    padding: var(--espacamento-md);
-    border-radius: var(--border-radius-md);
-    margin-bottom: var(--espacamento-md);
-    border-left: 4px solid #c9515c;
-    font-weight: 600;
-    animation: shake 0.5s ease;
+    background: #f2d7d9; /* Fundo vermelho suave */
+    color: #8B4049; /* Cor do texto vermelho escuro */
+    padding: var(--espacamento-md); /* Preenchimento interno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    border-left: 4px solid #c9515c; /* Borda lateral vermelha */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    animation: shake 0.5s ease; /* Animação de "shake" */
 }
 
 @keyframes shake {
-
-    0%,
-    100% {
-        transform: translateX(0);
+    0%, 100% {
+        transform: translateX(0); /* Posição normal */
     }
-
     25% {
-        transform: translateX(-10px);
+        transform: translateX(-10px); /* Move para esquerda */
     }
-
     75% {
-        transform: translateX(10px);
+        transform: translateX(10px); /* Move para direita */
     }
 }
 
 .back-to-store {
-    text-align: center;
-    margin-top: var(--espacamento-md);
-    padding-top: var(--espacamento-md);
-    border-top: 1px solid var(--cor-bege);
+    text-align: center; /* Centraliza conteúdo */
+    margin-top: var(--espacamento-md); /* Margem superior */
+    padding-top: var(--espacamento-md); /* Padding superior */
+    border-top: 1px solid var(--cor-bege); /* Linha separadora */
 }
 
 .back-to-store a {
-    color: var(--cor-verde-escuro);
-    font-weight: 600;
-    transition: var(--transicao-media);
-    display: inline-block;
+    color: var(--cor-verde-escuro); /* Cor do link verde */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    transition: var(--transicao-media); /* Transição */
+    display: inline-block; /* Permite transformação */
 }
 
 .back-to-store a:hover {
-    color: var(--cor-verde-medio);
-    transform: translateX(-5px);
+    color: var(--cor-verde-medio); /* Muda cor ao passar mouse */
+    transform: translateX(-5px); /* Move para esquerda */
 }
 
 /* ==============================================
    ÁREA ADMINISTRATIVA - PAINEL
    ============================================== */
 .admin-page {
-    background: var(--cor-bege);
-    min-height: 100vh;
+    background: var(--cor-bege); /* Cor de fundo bege */
+    min-height: 100vh; /* Altura mínima de toda a viewport */
 }
 
 .admin-navbar {
-    background: var(--cor-marrom-escuro);
-    color: var(--cor-branco);
-    padding: var(--espacamento-md);
-    box-shadow: var(--sombra-media);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--espacamento-md);
+    background: var(--cor-marrom-escuro); /* Fundo marrom escuro */
+    color: var(--cor-branco); /* Cor do texto branco */
+    padding: var(--espacamento-md); /* Preenchimento interno */
+    box-shadow: var(--sombra-media); /* Sombra */
+    position: sticky; /* Fixa no topo ao rolar */
+    top: 0; /* Posiciona no topo */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça itens */
+    align-items: center; /* Alinha verticalmente */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    gap: var(--espacamento-md); /* Espaço entre itens */
 }
 
 .admin-nav-brand h2 {
-    color: var(--cor-amarelo-suave);
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.5rem;
-    margin: 0;
+    color: var(--cor-amarelo-suave); /* Cor amarela para título */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    font-size: 1.5rem; /* Tamanho da fonte */
+    margin: 0; /* Remove margens */
 }
 
 .admin-nav-links {
-    display: flex;
-    gap: var(--espacamento-md);
-    align-items: center;
+    display: flex; /* Usa flexbox para links */
+    gap: var(--espacamento-md); /* Espaço entre links */
+    align-items: center; /* Alinha verticalmente */
 }
 
 .admin-nav-links a {
-    color: var(--cor-bege);
-    font-weight: 600;
-    padding: 0.6rem 1.2rem;
-    border-radius: var(--border-radius-md);
-    transition: var(--transicao-media);
-    position: relative;
+    color: var(--cor-bege); /* Cor do texto */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    padding: 0.6rem 1.2rem; /* Preenchimento interno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    transition: var(--transicao-media); /* Transição */
+    position: relative; /* Para possíveis efeitos */
 }
 
 .admin-nav-links a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--cor-amarelo-suave);
+    background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente ao passar mouse */
+    color: var(--cor-amarelo-suave); /* Muda cor do texto */
 }
 
 .admin-nav-links a.active {
-    background: var(--cor-verde-medio);
-    color: var(--cor-branco);
+    background: var(--cor-verde-medio); /* Fundo verde para item ativo */
+    color: var(--cor-branco); /* Cor do texto branco */
 }
 
 .admin-content {
-    padding: var(--espacamento-xl) 0;
+    padding: var(--espacamento-xl) 0; /* Preenchimento vertical grande */
 }
 
 .admin-content h1 {
-    color: var(--cor-marrom-escuro);
-    margin-bottom: var(--espacamento-lg);
-    font-size: 2.5rem;
-    font-family: 'Fredoka', sans-serif;
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior */
+    font-size: 2.5rem; /* Tamanho grande */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
 }
 
 .admin-content h2 {
-    color: var(--cor-marrom-escuro);
-    margin-bottom: var(--espacamento-md);
-    font-size: 1.8rem;
-    font-family: 'Fredoka', sans-serif;
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    font-size: 1.8rem; /* Tamanho médio-grande */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
 }
 
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--espacamento-lg);
-    margin-bottom: var(--espacamento-xl);
+    display: grid; /* Usa CSS Grid para layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: var(--espacamento-lg); /* Espaço entre cartões */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
 }
 
 .stat-card {
-    background: var(--cor-branco);
-    padding: var(--espacamento-lg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--sombra-leve);
-    display: flex;
-    align-items: center;
-    gap: var(--espacamento-md);
-    transition: var(--transicao-suave);
-    border-left: 5px solid var(--cor-verde-medio);
+    background: var(--cor-branco); /* Fundo branco */
+    padding: var(--espacamento-lg); /* Preenchimento interno */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    display: flex; /* Usa flexbox para alinhar ícone e texto */
+    align-items: center; /* Alinha verticalmente */
+    gap: var(--espacamento-md); /* Espaço entre ícone e texto */
+    transition: var(--transicao-suave); /* Transição suave */
+    border-left: 5px solid var(--cor-verde-medio); /* Borda lateral colorida */
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-forte);
+    transform: translateY(-5px); /* Eleva ao passar mouse */
+    box-shadow: var(--sombra-forte); /* Intensifica sombra */
 }
 
 .stat-card:nth-child(1) {
-    border-left-color: var(--cor-verde-medio);
+    border-left-color: var(--cor-verde-medio); /* Borda verde para primeiro cartão */
 }
 
 .stat-card:nth-child(2) {
-    border-left-color: var(--cor-amarelo-suave);
+    border-left-color: var(--cor-amarelo-suave); /* Borda amarela para segundo cartão */
 }
 
 .stat-card:nth-child(3) {
-    border-left-color: var(--cor-rosa-bebe);
+    border-left-color: var(--cor-rosa-bebe); /* Borda rosa para terceiro cartão */
 }
 
 .stat-card:nth-child(4) {
-    border-left-color: var(--cor-azul-bebe);
+    border-left-color: var(--cor-azul-bebe); /* Borda azul para quarto cartão */
 }
 
 .stat-icon {
-    font-size: 3rem;
-    line-height: 1;
+    font-size: 3rem; /* Tamanho grande para ícone */
+    line-height: 1; /* Remove espaço extra */
 }
 
 .stat-info h3 {
-    font-size: 2rem;
-    margin: 0;
-    color: var(--cor-marrom-escuro);
-    font-family: 'Fredoka', sans-serif;
+    font-size: 2rem; /* Tamanho grande para número */
+    margin: 0; /* Remove margens */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
 }
 
 .stat-info p {
-    margin: 0;
-    color: var(--cor-marrom-medio);
-    font-weight: 600;
-    font-size: 0.95rem;
+    margin: 0; /* Remove margens */
+    color: var(--cor-marrom-medio); /* Cor do texto mais clara */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    font-size: 0.95rem; /* Tamanho da fonte */
 }
 
 .quick-actions {
-    background: var(--cor-branco);
-    padding: var(--espacamento-lg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--sombra-leve);
-    margin-bottom: var(--espacamento-xl);
+    background: var(--cor-branco); /* Fundo branco */
+    padding: var(--espacamento-lg); /* Preenchimento interno */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
 }
 
 .actions-buttons {
-    display: flex;
-    gap: var(--espacamento-md);
-    flex-wrap: wrap;
+    display: flex; /* Usa flexbox para botões */
+    gap: var(--espacamento-md); /* Espaço entre botões */
+    flex-wrap: wrap; /* Permite quebra de linha */
 }
 
 .recent-orders {
-    background: var(--cor-branco);
-    padding: var(--espacamento-lg);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--sombra-leve);
+    background: var(--cor-branco); /* Fundo branco */
+    padding: var(--espacamento-lg); /* Preenchimento interno */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
 }
 
 .admin-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: var(--espacamento-md);
-    background: var(--cor-branco);
+    width: 100%; /* Largura total */
+    border-collapse: collapse; /* Remove espaços entre bordas de células */
+    margin-top: var(--espacamento-md); /* Margem superior */
+    background: var(--cor-branco); /* Fundo branco */
 }
 
 .admin-table thead {
-    background: var(--cor-verde-suave);
+    background: var(--cor-verde-suave); /* Fundo verde claro para cabeçalho */
 }
 
 .admin-table thead th {
-    padding: var(--espacamento-md);
-    text-align: left;
-    font-weight: 700;
-    color: var(--cor-marrom-escuro);
-    font-family: 'Fredoka', sans-serif;
-    font-size: 0.95rem;
+    padding: var(--espacamento-md); /* Preenchimento interno */
+    text-align: left; /* Alinha texto à esquerda */
+    font-weight: 700; /* Peso da fonte negrito */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    font-size: 0.95rem; /* Tamanho da fonte */
 }
 
 .admin-table tbody tr {
-    border-bottom: 1px solid var(--cor-bege);
-    transition: var(--transicao-rapida);
+    border-bottom: 1px solid var(--cor-bege); /* Linha separadora */
+    transition: var(--transicao-rapida); /* Transição rápida */
 }
 
 .admin-table tbody tr:hover {
-    background: var(--cor-creme);
+    background: var(--cor-creme); /* Fundo ao passar mouse */
 }
 
 .admin-table tbody td {
-    padding: var(--espacamento-md);
-    color: var(--cor-marrom-escuro);
+    padding: var(--espacamento-md); /* Preenchimento interno */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
 }
 
 .status-badge {
-    display: inline-block;
-    padding: 0.4rem 0.9rem;
-    border-radius: var(--border-radius-xl);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: capitalize;
+    display: inline-block; /* Permite definir largura/padding */
+    padding: 0.4rem 0.9rem; /* Preenchimento interno */
+    border-radius: var(--border-radius-xl); /* Bordas bem arredondadas */
+    font-size: 0.85rem; /* Tamanho da fonte pequeno */
+    font-weight: 700; /* Peso da fonte negrito */
+    text-transform: capitalize; /* Primeira letra maiúscula */
 }
 
 .status-pendente {
-    background: #fff3cd;
-    color: #856404;
+    background: #fff3cd; /* Fundo amarelo claro */
+    color: #856404; /* Cor do texto amarelo escuro */
 }
 
 .status-processando {
-    background: var(--cor-azul-bebe);
-    color: #0c5460;
+    background: var(--cor-azul-bebe); /* Fundo azul bebê */
+    color: #0c5460; /* Cor do texto azul escuro */
 }
 
 .status-enviado {
-    background: #d1ecf1;
-    color: #0c5460;
+    background: #d1ecf1; /* Fundo azul muito claro */
+    color: #0c5460; /* Cor do texto azul escuro */
 }
 
 .status-entregue {
-    background: #d4edda;
-    color: #155724;
+    background: #d4edda; /* Fundo verde claro */
+    color: #155724; /* Cor do texto verde escuro */
 }
 
 .status-cancelado {
-    background: #f8d7da;
-    color: #721c24;
+    background: #f8d7da; /* Fundo vermelho claro */
+    color: #721c24; /* Cor do texto vermelho escuro */
 }
 
 .action-buttons {
-    display: flex;
-    gap: var(--espacamento-xs);
+    display: flex; /* Usa flexbox para botões de ação */
+    gap: var(--espacamento-xs); /* Espaço pequeno entre botões */
 }
 
 .btn-action {
-    padding: 0.5rem 0.8rem;
-    border-radius: var(--border-radius-md);
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transicao-media);
-    border: none;
+    padding: 0.5rem 0.8rem; /* Preenchimento interno pequeno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    font-size: 0.85rem; /* Tamanho da fonte pequeno */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    cursor: pointer; /* Muda cursor para pointer */
+    transition: var(--transicao-media); /* Transição */
+    border: none; /* Remove borda padrão */
 }
 
 .btn-edit {
-    background: var(--cor-azul-bebe);
-    color: #0c5460;
+    background: var(--cor-azul-bebe); /* Fundo azul bebê */
+    color: #0c5460; /* Cor do texto azul escuro */
 }
 
 .btn-edit:hover {
-    background: #b3d9e6;
+    background: #b3d9e6; /* Cor mais forte ao passar mouse */
 }
 
 .btn-delete {
-    background: #f8d7da;
-    color: #721c24;
+    background: #f8d7da; /* Fundo vermelho claro */
+    color: #721c24; /* Cor do texto vermelho escuro */
 }
 
 .btn-delete:hover {
-    background: #f1b0b7;
+    background: #f1b0b7; /* Cor mais forte ao passar mouse */
 }
 
 .product-form {
-    background: var(--cor-branco);
-    padding: var(--espacamento-xl);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--sombra-leve);
-    max-width: 700px;
-    margin: 0 auto;
+    background: var(--cor-branco); /* Fundo branco */
+    padding: var(--espacamento-xl); /* Preenchimento interno grande */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    max-width: 700px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
 }
 
 .product-form .form-group {
-    margin-bottom: var(--espacamento-md);
+    margin-bottom: var(--espacamento-md); /* Margem inferior entre grupos */
 }
 
 .product-form label {
-    display: block;
-    margin-bottom: var(--espacamento-xs);
-    color: var(--cor-marrom-escuro);
-    font-weight: 600;
+    display: block; /* Ocupa linha inteira */
+    margin-bottom: var(--espacamento-xs); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    font-weight: 600; /* Peso da fonte semi-negrito */
 }
 
 .product-form input,
 .product-form textarea,
 .product-form select {
-    width: 100%;
-    padding: 0.9rem 1.2rem;
-    border: 2px solid var(--cor-bege);
-    border-radius: var(--border-radius-md);
-    font-family: 'Nunito', sans-serif;
-    font-size: 1rem;
-    color: var(--cor-marrom-escuro);
-    background: var(--cor-creme);
-    transition: var(--transicao-media);
+    width: 100%; /* Largura total */
+    padding: 0.9rem 1.2rem; /* Preenchimento interno */
+    border: 2px solid var(--cor-bege); /* Borda sutil */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    font-family: 'Nunito', sans-serif; /* Fonte */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    background: var(--cor-creme); /* Cor de fundo */
+    transition: var(--transicao-media); /* Transição */
 }
 
 .product-form textarea {
-    min-height: 120px;
-    resize: vertical;
+    min-height: 120px; /* Altura mínima */
+    resize: vertical; /* Permite redimensionamento apenas vertical */
 }
 
 .product-form input:focus,
 .product-form textarea:focus,
 .product-form select:focus {
-    outline: none;
-    border-color: var(--cor-verde-medio);
-    background: var(--cor-branco);
-    box-shadow: 0 0 0 3px rgba(168, 198, 159, 0.1);
+    outline: none; /* Remove contorno padrão */
+    border-color: var(--cor-verde-medio); /* Muda cor da borda */
+    background: var(--cor-branco); /* Muda fundo para branco */
+    box-shadow: 0 0 0 3px rgba(168, 198, 159, 0.1); /* Sombra de foco */
 }
 
 .image-preview {
-    margin-top: var(--espacamento-md);
-    display: none;
+    margin-top: var(--espacamento-md); /* Margem superior */
+    display: none; /* Escondido por padrão */
 }
 
 .image-preview.active {
-    display: block;
+    display: block; /* Mostra quando ativo */
 }
 
 .image-preview img {
-    max-width: 300px;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--sombra-leve);
-    margin-top: var(--espacamento-sm);
+    max-width: 300px; /* Largura máxima para preview */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    margin-top: var(--espacamento-sm); /* Margem superior */
 }
 
 .form-buttons {
-    display: flex;
-    gap: var(--espacamento-md);
-    margin-top: var(--espacamento-lg);
+    display: flex; /* Usa flexbox para botões */
+    gap: var(--espacamento-md); /* Espaço entre botões */
+    margin-top: var(--espacamento-lg); /* Margem superior grande */
 }
 
 .btn-cancel {
-    background: var(--cor-marrom-claro);
-    color: var(--cor-marrom-escuro);
+    background: var(--cor-marrom-claro); /* Fundo marrom claro */
+    color: var(--cor-marrom-escuro); /* Cor do texto marrom escuro */
 }
 
 .btn-cancel:hover {
-    background: var(--cor-marrom-medio);
+    background: var(--cor-marrom-medio); /* Cor mais escura ao passar mouse */
 }
 
 .products-admin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--espacamento-lg);
-    margin-top: var(--espacamento-lg);
+    display: grid; /* Usa CSS Grid para layout */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Colunas responsivas */
+    gap: var(--espacamento-lg); /* Espaço entre produtos */
+    margin-top: var(--espacamento-lg); /* Margem superior */
 }
 
 .product-admin-card {
-    background: var(--cor-branco);
-    border-radius: var(--border-radius-lg);
-    overflow: hidden;
-    box-shadow: var(--sombra-leve);
-    transition: var(--transicao-suave);
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    overflow: hidden; /* Esconde overflow */
+    box-shadow: var(--sombra-leve); /* Sombra leve */
+    transition: var(--transicao-suave); /* Transição suave */
 }
 
 .product-admin-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--sombra-forte);
+    transform: translateY(-5px); /* Eleva ao passar mouse */
+    box-shadow: var(--sombra-forte); /* Intensifica sombra */
 }
 
 .product-admin-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+    width: 100%; /* Largura total */
+    height: 200px; /* Altura fixa */
+    object-fit: cover; /* Preenche espaço mantendo proporção */
 }
 
 .product-admin-info {
-    padding: var(--espacamento-md);
+    padding: var(--espacamento-md); /* Preenchimento interno */
 }
 
 .product-admin-info h3 {
-    margin-bottom: var(--espacamento-xs);
-    color: var(--cor-marrom-escuro);
+    margin-bottom: var(--espacamento-xs); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
 }
 
 .product-admin-info p {
-    color: var(--cor-marrom-medio);
-    margin-bottom: var(--espacamento-sm);
+    color: var(--cor-marrom-medio); /* Cor do texto mais clara */
+    margin-bottom: var(--espacamento-sm); /* Margem inferior */
 }
 
 .product-admin-price {
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--cor-verde-escuro);
-    margin-bottom: var(--espacamento-md);
+    font-size: 1.3rem; /* Tamanho grande para preço */
+    font-weight: 700; /* Peso da fonte negrito */
+    color: var(--cor-verde-escuro); /* Cor verde para destaque */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
 }
 
 .success-message {
-    background: #d4edda;
-    color: #155724;
-    padding: var(--espacamento-md);
-    border-radius: var(--border-radius-md);
-    margin-bottom: var(--espacamento-md);
-    border-left: 4px solid #28a745;
-    font-weight: 600;
-    animation: fadeIn 0.5s ease;
+    background: #d4edda; /* Fundo verde claro */
+    color: #155724; /* Cor do texto verde escuro */
+    padding: var(--espacamento-md); /* Preenchimento interno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    border-left: 4px solid #28a745; /* Borda lateral verde */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    animation: fadeIn 0.5s ease; /* Animação de entrada */
 }
 
 .empty-state {
-    text-align: center;
-    padding: var(--espacamento-xl);
-    color: var(--cor-marrom-medio);
+    text-align: center; /* Centraliza conteúdo */
+    padding: var(--espacamento-xl); /* Preenchimento interno grande */
+    color: var(--cor-marrom-medio); /* Cor do texto mais clara */
 }
 
 .empty-state-icon {
-    font-size: 4rem;
-    margin-bottom: var(--espacamento-md);
-    opacity: 0.5;
+    font-size: 4rem; /* Tamanho gigante para ícone */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+    opacity: 0.5; /* Opacidade reduzida */
 }
 
 /* ==============================================
-   RESPONSIVIDADE ADMINISTRATIVA
+   PÁGINA DE CHECKOUT (FINALIZAR COMPRA)
    ============================================== */
-@media (max-width: 768px) {
-    .admin-navbar {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .admin-nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .actions-buttons {
-        flex-direction: column;
-    }
-
-    .actions-buttons .btn {
-        width: 100%;
-    }
-
-    .admin-table {
-        font-size: 0.85rem;
-    }
-
-    .admin-table thead th,
-    .admin-table tbody td {
-        padding: var(--espacamento-xs);
-    }
-
-    .form-buttons {
-        flex-direction: column;
-    }
-
-    .form-buttons .btn {
-        width: 100%;
-    }
+/* Container principal da página de checkout */
+.checkout-page {
+    min-height: 70vh; /* Altura mínima para evitar footer flutuante */
+    padding: var(--espacamento-xl) 0; /* Padding vertical grande */
+    background: var(--cor-bege); /* Cor de fundo bege */
 }
 
-@media (max-width: 480px) {
-    .login-card {
-        padding: var(--espacamento-md);
-    }
+/* Título da página */
+.checkout-page h1 {
+    text-align: center; /* Centraliza título */
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
+    font-size: 2.5rem; /* Tamanho grande */
+    color: var(--cor-marrom-escuro); /* Cor marrom escuro */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+}
 
-    .login-header h1 {
-        font-size: 1.5rem;
-    }
+/* Layout em grid: formulário + resumo */
+.checkout-container {
+    display: grid; /* Usa CSS Grid para layout */
+    grid-template-columns: 1fr 400px; /* Coluna principal para itens e sidebar para resumo */
+    gap: var(--espacamento-xl); /* Espaço grande entre colunas */
+    align-items: start; /* Alinha itens ao topo */
+}
 
-    .admin-content h1 {
-        font-size: 1.8rem;
-    }
+/* Formulário de checkout */
+.checkout-form {
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    padding: var(--espacamento-xl); /* Padding interno grande */
+    box-shadow: var(--sombra-media); /* Sombra média */
+}
 
-    .admin-content h2 {
-        font-size: 1.4rem;
-    }
+/* Seções do formulário */
+.form-section {
+    margin-bottom: var(--espacamento-xl); /* Margem inferior grande */
+    padding-bottom: var(--espacamento-xl); /* Padding inferior grande */
+    border-bottom: 2px solid var(--cor-bege); /* Linha separadora */
+}
 
-    .stat-icon {
-        font-size: 2rem;
-    }
+.form-section:last-child {
+    border-bottom: none; /* Remove linha do último item */
+    margin-bottom: 0; /* Remove margem inferior */
+    padding-bottom: 0; /* Remove padding inferior */
+}
 
-    .stat-info h3 {
-        font-size: 1.5rem;
-    }
+/* Título das seções */
+.form-section h2 {
+    font-size: 1.5rem; /* Tamanho médio-grande */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    display: flex; /* Usa flexbox para alinhamento */
+    align-items: center; /* Alinha verticalmente */
+    gap: var(--espacamento-sm); /* Espaço entre ícone e texto */
+}
+
+/* Grid de campos do formulário */
+.form-row {
+    display: grid; /* Usa CSS Grid para layout */
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: var(--espacamento-md); /* Espaço entre colunas */
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+}
+
+.form-row.full {
+    grid-template-columns: 1fr; /* Uma coluna apenas */
+}
+
+/* Grupos de formulário */
+.checkout-form .form-group {
+    margin-bottom: var(--espacamento-md); /* Margem inferior */
+}
+
+.checkout-form .form-group label {
+    display: block; /* Ocupa linha inteira */
+    margin-bottom: var(--espacamento-xs); /* Margem inferior */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    font-size: 0.95rem; /* Tamanho da fonte */
+}
+
+.checkout-form .form-group label span {
+    color: #c9515c; /* Cor vermelha para asterisco */
+}
+
+.checkout-form .form-group input,
+.checkout-form .form-group select,
+.checkout-form .form-group textarea {
+    width: 100%; /* Largura total */
+    padding: 0.9rem 1.2rem; /* Preenchimento interno */
+    border: 2px solid var(--cor-bege); /* Borda sutil */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    font-family: 'Nunito', sans-serif; /* Fonte */
+    font-size: 1rem; /* Tamanho da fonte */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    background: var(--cor-creme); /* Cor de fundo */
+    transition: var(--transicao-media); /* Transição */
+}
+
+.checkout-form .form-group input:focus,
+.checkout-form .form-group select:focus,
+.checkout-form .form-group textarea:focus {
+    outline: none; /* Remove contorno padrão */
+    border-color: var(--cor-verde-medio); /* Muda cor da borda */
+    background: var(--cor-branco); /* Muda fundo para branco */
+    box-shadow: 0 0 0 3px rgba(168, 198, 159, 0.1); /* Sombra de foco */
+}
+
+.checkout-form .form-group input::placeholder,
+.checkout-form .form-group textarea::placeholder {
+    color: var(--cor-marrom-medio); /* Cor do placeholder */
+    opacity: 0.7; /* Opacidade reduzida */
+}
+
+/* Campos pequenos (CEP, Número) */
+.form-group.small input {
+    max-width: 150px; /* Largura máxima reduzida */
+}
+
+/* Opções de pagamento */
+.payment-options {
+    display: flex; /* Usa flexbox para layout */
+    flex-direction: column; /* Empilha verticalmente */
+    gap: var(--espacamento-sm); /* Espaço entre opções */
+}
+
+.payment-option {
+    display: flex; /* Usa flexbox para alinhamento */
+    align-items: center; /* Alinha verticalmente */
+    padding: var(--espacamento-md); /* Padding interno */
+    border: 2px solid var(--cor-bege); /* Borda sutil */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    cursor: pointer; /* Muda cursor para pointer */
+    transition: var(--transicao-media); /* Transição */
+}
+
+.payment-option:hover {
+    border-color: var(--cor-verde-medio); /* Muda cor da borda */
+    background: var(--cor-creme); /* Adiciona fundo */
+}
+
+.payment-option input[type="radio"] {
+    width: auto; /* Largura automática */
+    margin-right: var(--espacamento-sm); /* Margem direita */
+    cursor: pointer; /* Muda cursor para pointer */
+}
+
+.payment-option label {
+    cursor: pointer; /* Muda cursor para pointer */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    margin: 0 !important; /* Remove margem */
+}
+
+/* Resumo do pedido no checkout */
+.checkout-summary {
+    background: var(--cor-branco); /* Fundo branco */
+    border-radius: var(--border-radius-lg); /* Bordas arredondadas */
+    padding: var(--espacamento-lg); /* Padding interno grande */
+    box-shadow: var(--sombra-media); /* Sombra média */
+    position: sticky; /* Fixa ao rolar */
+    top: var(--espacamento-lg); /* Distância do topo */
+    border-top: 5px solid var(--cor-verde-medio); /* Borda superior colorida */
+}
+
+.checkout-summary h3 {
+    font-size: 1.5rem; /* Tamanho médio-grande */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande */
+    font-family: 'Fredoka', sans-serif; /* Fonte especial */
+    text-align: center; /* Centraliza título */
+    padding-bottom: var(--espacamento-md); /* Padding inferior */
+    border-bottom: 2px solid var(--cor-bege); /* Linha separadora */
+}
+
+/* Itens do resumo */
+.summary-items {
+    margin-bottom: var(--espacamento-lg); /* Margem inferior grande */
+    max-height: 300px; /* Altura máxima com scroll */
+    overflow-y: auto; /* Scroll vertical */
+}
+
+.summary-item {
+    display: flex; /* Usa flexbox para layout */
+    justify-content: space-between; /* Espaça elementos nas pontas */
+    align-items: center; /* Alinha verticalmente */
+    padding: var(--espacamento-sm) 0; /* Padding vertical */
+    border-bottom: 1px solid var(--cor-bege); /* Linha separadora */
+}
+
+.summary-item:last-child {
+    border-bottom: none; /* Remove linha do último item */
+}
+
+.summary-item-info {
+    flex: 1; /* Ocupa espaço disponível */
+}
+
+.summary-item-info p {
+    margin: 0; /* Remove margem */
+    color: var(--cor-marrom-escuro); /* Cor do texto */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+}
+
+.summary-item-info small {
+    color: var(--cor-marrom-medio); /* Cor do texto mais clara */
+    font-size: 0.85rem; /* Tamanho da fonte pequeno */
+}
+
+.summary-item-price {
+    font-weight: 700; /* Peso da fonte negrito */
+    color: var(--cor-verde-escuro); /* Cor verde para destaque */
+}
+
+/* Botão de finalizar */
+.btn-finish {
+    width: 100%; /* Largura total */
+    margin-top: var(--espacamento-lg); /* Margem superior grande */
+    padding: 1.2rem; /* Padding interno grande */
+    font-size: 1.1rem; /* Tamanho da fonte maior */
+    font-weight: 700; /* Peso da fonte negrito */
+}
+
+/* Link para voltar ao carrinho */
+.btn-back-cart {
+    display: block; /* Ocupa linha inteira */
+    text-align: center; /* Centraliza texto */
+    margin-top: var(--espacamento-md); /* Margem superior */
+    color: var(--cor-verde-escuro); /* Cor do texto verde */
+    font-weight: 600; /* Peso da fonte semi-negrito */
+    padding: 0.8rem; /* Padding interno */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    transition: var(--transicao-media); /* Transição */
+}
+
+.btn-back-cart:hover {
+    background: var(--cor-creme); /* Adiciona fundo ao passar mouse */
+    color: var(--cor-verde-medio); /* Muda cor do texto */
 }
