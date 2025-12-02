@@ -1,4 +1,4 @@
-# Abelinha Curiosa - E-commerce de Brinquedos Educativos
+# Abelinha Curiosa - E-commerce de Brinquedos Pedagógicos
 
 Bem-vindo ao projeto **Abelinha Curiosa**, um e-commerce dedicado à venda de brinquedos educativos e pedagógicos para crianças de todas as idades.
 
